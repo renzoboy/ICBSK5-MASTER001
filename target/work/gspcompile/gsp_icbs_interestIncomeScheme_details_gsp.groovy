@@ -1,0 +1,253 @@
+import icbs.loans.InterestIncomeScheme
+import icbs.lov.LoanInstallmentType
+import icbs.lov.LoanCalculation
+import icbs.lov.LoanAdvancedInterestType
+import icbs.lov.ConfigItemStatus
+import icbs.admin.Product
+import org.codehaus.groovy.grails.plugins.metadata.GrailsPlugin
+import org.codehaus.groovy.grails.web.pages.GroovyPage
+import org.codehaus.groovy.grails.web.taglib.*
+import org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException
+import org.springframework.web.util.*
+import grails.util.GrailsUtil
+
+class gsp_icbs_interestIncomeScheme_details_gsp extends GroovyPage {
+public String getGroovyPageFileName() { "/WEB-INF/grails-app/views/interestIncomeScheme/_details.gsp" }
+public Object run() {
+Writer out = getOut()
+Writer expressionOut = getExpressionOut()
+registerSitemeshPreprocessMode()
+printHtmlPart(0)
+printHtmlPart(0)
+printHtmlPart(0)
+printHtmlPart(0)
+printHtmlPart(0)
+printHtmlPart(1)
+expressionOut.print(hasErrors(bean: interestIncomeSchemeInstance, field: 'code', 'has-error'))
+printHtmlPart(2)
+invokeTag('message','g',11,['code':("interestIncomeScheme.code.label"),'default':("Code")],-1)
+printHtmlPart(3)
+invokeTag('textField','g',15,['class':("form-control"),'name':("code"),'maxlength':("10"),'value':(interestIncomeSchemeInstance?.code)],-1)
+printHtmlPart(4)
+createTagBody(1, {->
+printHtmlPart(5)
+createTagBody(2, {->
+printHtmlPart(6)
+invokeTag('message','g',20,['error':(it)],-1)
+printHtmlPart(7)
+})
+invokeTag('eachError','g',21,['bean':(interestIncomeSchemeInstance),'field':("code")],2)
+printHtmlPart(8)
+})
+invokeTag('hasErrors','g',24,['bean':(interestIncomeSchemeInstance),'field':("code")],1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: interestIncomeSchemeInstance, field: 'name', 'has-error'))
+printHtmlPart(10)
+invokeTag('message','g',30,['code':("interestIncomeScheme.name.label"),'default':("Name")],-1)
+printHtmlPart(3)
+invokeTag('textField','g',34,['class':("form-control"),'name':("name"),'maxlength':("75"),'value':(interestIncomeSchemeInstance?.name)],-1)
+printHtmlPart(4)
+createTagBody(1, {->
+printHtmlPart(5)
+createTagBody(2, {->
+printHtmlPart(6)
+invokeTag('message','g',39,['error':(it)],-1)
+printHtmlPart(7)
+})
+invokeTag('eachError','g',40,['bean':(interestIncomeSchemeInstance),'field':("name")],2)
+printHtmlPart(8)
+})
+invokeTag('hasErrors','g',43,['bean':(interestIncomeSchemeInstance),'field':("name")],1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: interestIncomeSchemeInstance, field: 'installmentType', 'has-error'))
+printHtmlPart(11)
+invokeTag('message','g',49,['code':("interestIncomeScheme.installmentType.label"),'default':("Installment Type")],-1)
+printHtmlPart(12)
+invokeTag('select','g',52,['class':("form-control"),'id':("installmentType"),'name':("installmentType.id"),'from':(icbs.lov.LoanInstallmentType.list()),'optionKey':("id"),'optionValue':("description"),'value':(interestIncomeSchemeInstance?.installmentType?.id)],-1)
+printHtmlPart(4)
+createTagBody(1, {->
+printHtmlPart(5)
+createTagBody(2, {->
+printHtmlPart(6)
+invokeTag('message','g',57,['error':(it)],-1)
+printHtmlPart(7)
+})
+invokeTag('eachError','g',58,['bean':(interestIncomeSchemeInstance),'field':("installmentType")],2)
+printHtmlPart(8)
+})
+invokeTag('hasErrors','g',61,['bean':(interestIncomeSchemeInstance),'field':("installmentType")],1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: interestIncomeSchemeInstance, field: 'installmentCalcType', 'has-error'))
+printHtmlPart(13)
+invokeTag('message','g',67,['code':("interestIncomeScheme.installmentCalcType.label"),'default':("Installment Calculation Type")],-1)
+printHtmlPart(12)
+invokeTag('select','g',70,['class':("form-control"),'id':("installmentCalcType"),'name':("installmentCalcType.id"),'from':(icbs.lov.LoanCalculation.list()),'optionKey':("id"),'optionValue':("description"),'value':(interestIncomeSchemeInstance?.installmentCalcType?.id),'onchange':("updateForm()")],-1)
+printHtmlPart(4)
+createTagBody(1, {->
+printHtmlPart(5)
+createTagBody(2, {->
+printHtmlPart(6)
+invokeTag('message','g',75,['error':(it)],-1)
+printHtmlPart(7)
+})
+invokeTag('eachError','g',76,['bean':(interestIncomeSchemeInstance),'field':("installmentCalcType")],2)
+printHtmlPart(8)
+})
+invokeTag('hasErrors','g',79,['bean':(interestIncomeSchemeInstance),'field':("installmentCalcType")],1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: interestIncomeSchemeInstance, field: 'advInterestType', 'has-error'))
+printHtmlPart(14)
+invokeTag('message','g',85,['code':("interestIncomeScheme.advInterestType.label"),'default':("Advanced Interest Type")],-1)
+printHtmlPart(12)
+invokeTag('select','g',88,['class':("form-control"),'id':("advInterestType"),'name':("advInterestType.id"),'from':(icbs.lov.LoanAdvancedInterestType.list()),'optionKey':("id"),'optionValue':("description"),'value':(interestIncomeSchemeInstance?.advInterestType?.id)],-1)
+printHtmlPart(4)
+createTagBody(1, {->
+printHtmlPart(5)
+createTagBody(2, {->
+printHtmlPart(6)
+invokeTag('message','g',93,['error':(it)],-1)
+printHtmlPart(7)
+})
+invokeTag('eachError','g',94,['bean':(interestIncomeSchemeInstance),'field':("advInterestType")],2)
+printHtmlPart(8)
+})
+invokeTag('hasErrors','g',97,['bean':(interestIncomeSchemeInstance),'field':("advInterestType")],1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: interestIncomeSchemeInstance, field: 'defaultInterestRate', 'has-error'))
+printHtmlPart(15)
+invokeTag('message','g',103,['code':("interestIncomeScheme.defaultInterestRate.label"),'default':("Default Interest Rate (%)")],-1)
+printHtmlPart(3)
+invokeTag('field','g',107,['class':("form-control"),'name':("defaultInterestRate"),'value':(fieldValue(bean: interestIncomeSchemeInstance, field: 'defaultInterestRate'))],-1)
+printHtmlPart(4)
+createTagBody(1, {->
+printHtmlPart(5)
+createTagBody(2, {->
+printHtmlPart(6)
+invokeTag('message','g',112,['error':(it)],-1)
+printHtmlPart(7)
+})
+invokeTag('eachError','g',113,['bean':(interestIncomeSchemeInstance),'field':("defaultInterestRate")],2)
+printHtmlPart(8)
+})
+invokeTag('hasErrors','g',116,['bean':(interestIncomeSchemeInstance),'field':("defaultInterestRate")],1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: interestIncomeSchemeInstance, field: 'pastDueInterestRate', 'has-error'))
+printHtmlPart(16)
+invokeTag('message','g',122,['code':("interestIncomeScheme.pastDueInterestRate.label"),'default':("Past Due Interest Rate (%)")],-1)
+printHtmlPart(3)
+invokeTag('field','g',126,['class':("form-control"),'name':("pastDueInterestRate"),'value':(fieldValue(bean: interestIncomeSchemeInstance, field: 'pastDueInterestRate'))],-1)
+printHtmlPart(4)
+createTagBody(1, {->
+printHtmlPart(5)
+createTagBody(2, {->
+printHtmlPart(6)
+invokeTag('message','g',131,['error':(it)],-1)
+printHtmlPart(7)
+})
+invokeTag('eachError','g',132,['bean':(interestIncomeSchemeInstance),'field':("pastDueInterestRate")],2)
+printHtmlPart(8)
+})
+invokeTag('hasErrors','g',135,['bean':(interestIncomeSchemeInstance),'field':("pastDueInterestRate")],1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: interestIncomeSchemeInstance, field: 'minInterestRate', 'has-error'))
+printHtmlPart(17)
+invokeTag('message','g',141,['code':("interestIncomeScheme.minInterestRate.label"),'default':("Min Interest Rate (%)")],-1)
+printHtmlPart(3)
+invokeTag('field','g',145,['class':("form-control"),'name':("minInterestRate"),'value':(fieldValue(bean: interestIncomeSchemeInstance, field: 'minInterestRate'))],-1)
+printHtmlPart(4)
+createTagBody(1, {->
+printHtmlPart(5)
+createTagBody(2, {->
+printHtmlPart(6)
+invokeTag('message','g',150,['error':(it)],-1)
+printHtmlPart(7)
+})
+invokeTag('eachError','g',151,['bean':(interestIncomeSchemeInstance),'field':("minInterestRate")],2)
+printHtmlPart(8)
+})
+invokeTag('hasErrors','g',154,['bean':(interestIncomeSchemeInstance),'field':("minInterestRate")],1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: interestIncomeSchemeInstance, field: 'maxInterestRate', 'has-error'))
+printHtmlPart(18)
+invokeTag('message','g',160,['code':("interestIncomeScheme.maxInterestRate.label"),'default':("Max Interest Rate (%)")],-1)
+printHtmlPart(3)
+invokeTag('field','g',164,['class':("form-control"),'name':("maxInterestRate"),'value':(fieldValue(bean: interestIncomeSchemeInstance, field: 'maxInterestRate'))],-1)
+printHtmlPart(4)
+createTagBody(1, {->
+printHtmlPart(5)
+createTagBody(2, {->
+printHtmlPart(6)
+invokeTag('message','g',169,['error':(it)],-1)
+printHtmlPart(7)
+})
+invokeTag('eachError','g',170,['bean':(interestIncomeSchemeInstance),'field':("maxInterestRate")],2)
+printHtmlPart(8)
+})
+invokeTag('hasErrors','g',173,['bean':(interestIncomeSchemeInstance),'field':("maxInterestRate")],1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: interestIncomeSchemeInstance, field: 'divisor', 'has-error'))
+printHtmlPart(19)
+invokeTag('message','g',179,['code':("interestIncomeScheme.divisor.label"),'default':("Divisor")],-1)
+printHtmlPart(3)
+invokeTag('field','g',183,['class':("form-control"),'name':("divisor"),'type':("number"),'value':(interestIncomeSchemeInstance.divisor)],-1)
+printHtmlPart(4)
+createTagBody(1, {->
+printHtmlPart(5)
+createTagBody(2, {->
+printHtmlPart(6)
+invokeTag('message','g',188,['error':(it)],-1)
+printHtmlPart(7)
+})
+invokeTag('eachError','g',189,['bean':(interestIncomeSchemeInstance),'field':("divisor")],2)
+printHtmlPart(8)
+})
+invokeTag('hasErrors','g',192,['bean':(interestIncomeSchemeInstance),'field':("divisor")],1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: interestIncomeSchemeInstance, field: 'gracePeriod', 'has-error'))
+printHtmlPart(20)
+invokeTag('message','g',198,['code':("interestIncomeScheme.gracePeriod.label"),'default':("Grace Period")],-1)
+printHtmlPart(3)
+invokeTag('field','g',202,['class':("form-control"),'name':("gracePeriod"),'type':("number"),'value':(interestIncomeSchemeInstance.gracePeriod)],-1)
+printHtmlPart(4)
+createTagBody(1, {->
+printHtmlPart(5)
+createTagBody(2, {->
+printHtmlPart(6)
+invokeTag('message','g',207,['error':(it)],-1)
+printHtmlPart(7)
+})
+invokeTag('eachError','g',208,['bean':(interestIncomeSchemeInstance),'field':("gracePeriod")],2)
+printHtmlPart(8)
+})
+invokeTag('hasErrors','g',211,['bean':(interestIncomeSchemeInstance),'field':("gracePeriod")],1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: interestIncomeSchemeInstance, field: 'hasBalloonMode', 'has-error'))
+printHtmlPart(21)
+invokeTag('message','g',217,['code':("interestIncomeScheme.hasBalloonMode.label"),'default':("Balloon Mode")],-1)
+printHtmlPart(22)
+invokeTag('checkBox','g',220,['class':("form-control"),'name':("hasBalloonMode"),'value':(interestIncomeSchemeInstance?.hasBalloonMode)],-1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: interestIncomeSchemeInstance, field: 'canChangeInterestRate', 'has-error'))
+printHtmlPart(23)
+invokeTag('message','g',226,['code':("interestIncomeScheme.canChangeInterestRate.label"),'default':("Changeable Interest Rate")],-1)
+printHtmlPart(12)
+invokeTag('checkBox','g',229,['class':("form-control"),'name':("canChangeInterestRate"),'value':(interestIncomeSchemeInstance?.canChangeInterestRate)],-1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: interestIncomeSchemeInstance, field: 'hasInterestAccrual', 'has-error'))
+printHtmlPart(24)
+invokeTag('message','g',235,['code':("interestIncomeScheme.hasInterestAccrual.label"),'default':("Interest Accrual")],-1)
+printHtmlPart(12)
+invokeTag('checkBox','g',238,['class':("form-control"),'name':("hasInterestAccrual"),'value':(interestIncomeSchemeInstance?.hasInterestAccrual)],-1)
+printHtmlPart(25)
+}
+public static final Map JSP_TAGS = new HashMap()
+protected void init() {
+	this.jspTags = JSP_TAGS
+}
+public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
+public static final long LAST_MODIFIED = 1592209176000L
+public static final String EXPRESSION_CODEC = 'html'
+public static final String STATIC_CODEC = 'none'
+public static final String OUT_CODEC = 'html'
+public static final String TAGLIB_CODEC = 'none'
+}

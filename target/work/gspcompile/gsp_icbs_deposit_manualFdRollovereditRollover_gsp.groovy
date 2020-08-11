@@ -1,0 +1,206 @@
+import icbs.deposit.Rollover
+import icbs.admin.Branch
+import icbs.admin.UserMaster
+import org.codehaus.groovy.grails.plugins.metadata.GrailsPlugin
+import org.codehaus.groovy.grails.web.pages.GroovyPage
+import org.codehaus.groovy.grails.web.taglib.*
+import org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException
+import org.springframework.web.util.*
+import grails.util.GrailsUtil
+
+class gsp_icbs_deposit_manualFdRollovereditRollover_gsp extends GroovyPage {
+public String getGroovyPageFileName() { "/WEB-INF/grails-app/views/deposit/manualFdRollover/editRollover.gsp" }
+public Object run() {
+Writer out = getOut()
+Writer expressionOut = getExpressionOut()
+registerSitemeshPreprocessMode()
+printHtmlPart(0)
+printHtmlPart(1)
+printHtmlPart(1)
+printHtmlPart(1)
+printHtmlPart(2)
+createTagBody(1, {->
+printHtmlPart(3)
+invokeTag('captureMeta','sitemesh',12,['gsp_sm_xmlClosingForEmptyTag':(""),'http-equiv':("Content-Type"),'content':("text/html; charset=UTF-8")],-1)
+printHtmlPart(3)
+invokeTag('captureMeta','sitemesh',13,['gsp_sm_xmlClosingForEmptyTag':(""),'name':("layout"),'content':("main")],-1)
+printHtmlPart(3)
+invokeTag('javascript','asset',14,['src':("depositHelper.js")],-1)
+printHtmlPart(3)
+createTagBody(2, {->
+createClosureForHtmlPart(4, 3)
+invokeTag('captureTitle','sitemesh',15,[:],3)
+})
+invokeTag('wrapTitleTag','sitemesh',15,[:],2)
+printHtmlPart(3)
+createTagBody(2, {->
+printHtmlPart(5)
+expressionOut.print(createLink(controller : 'deposit', action:'createManualRolloverAjax'))
+printHtmlPart(6)
+expressionOut.print(depositInstance?.id)
+printHtmlPart(7)
+expressionOut.print(createLink(controller : 'deposit', action:'saveManualRollover'))
+printHtmlPart(8)
+expressionOut.print(createLink(controller : 'deposit', action:'showCustomerDetailsAjax'))
+printHtmlPart(9)
+expressionOut.print(createLink(controller : 'deposit', action:'showCustomerDetailsAjax'))
+printHtmlPart(10)
+expressionOut.print(createLink(controller : 'search', action:'search'))
+printHtmlPart(11)
+expressionOut.print(createLink(controller : 'deposit', action:'addSignatoryFormAjax'))
+printHtmlPart(12)
+expressionOut.print(createLink(controller : 'search', action:'search'))
+printHtmlPart(13)
+expressionOut.print(createLink(controller : 'deposit', action:'showDepositDetailsAjax'))
+printHtmlPart(14)
+expressionOut.print(createLink(controller : 'search', action:'search'))
+printHtmlPart(15)
+expressionOut.print(createLink(controller:'deposit', action: 'newchangeRolloverFormAjax'))
+printHtmlPart(16)
+expressionOut.print(depositInstance?.id)
+printHtmlPart(17)
+})
+invokeTag('javascript','g',261,[:],2)
+printHtmlPart(18)
+})
+invokeTag('captureHead','sitemesh',262,[:],1)
+printHtmlPart(18)
+createTagBody(1, {->
+printHtmlPart(3)
+createTagBody(2, {->
+printHtmlPart(19)
+expressionOut.print(hasErrors(bean: depositInstance, field: 'currentRollover.type', 'has-error'))
+printHtmlPart(20)
+invokeTag('message','g',274,['code':("rollover.type.label"),'default':("Rollover Type")],-1)
+printHtmlPart(21)
+invokeTag('select','g',277,['onchange':("changeRolloverForm();"),'id':("currentRollover"),'name':("currentRollover.type.id"),'from':(icbs.lov.RolloverType.list()),'optionKey':("id"),'optionValue':("description"),'value':(depositInstance? depositInstance.currentRollover?.type?.id:currentRollover.type?.id),'class':("many-to-one form-control")],-1)
+printHtmlPart(22)
+invokeTag('hiddenField','g',278,['id':("oldRolltype"),'name':("oldRolltype"),'value':(depositInstance? depositInstance.currentRollover?.type?.id:currentRollover.type?.id)],-1)
+printHtmlPart(22)
+createTagBody(3, {->
+printHtmlPart(23)
+createTagBody(4, {->
+printHtmlPart(24)
+invokeTag('message','g',283,['error':(it)],-1)
+printHtmlPart(25)
+})
+invokeTag('eachError','g',284,['bean':(depositInstance),'field':("currentRollover.type")],4)
+printHtmlPart(26)
+})
+invokeTag('hasErrors','g',287,['bean':(depositInstance),'field':("currentRollover.type")],3)
+printHtmlPart(27)
+expressionOut.print(hasErrors(bean: depositInstance, field: 'currentRollover.startDate', 'has-error'))
+printHtmlPart(28)
+invokeTag('message','g',292,['code':("rollover.startDate.label"),'default':("Start Date")],-1)
+printHtmlPart(29)
+invokeTag('customDatePicker','g',296,['format':("date"),'disabled':("disabled"),'name':("currentRollover.startDate"),'precision':("day"),'class':("form-control"),'value':(depositInstance ? depositInstance?.currentRollover?.startDate?:Branch?.get(1).runDate:currentRollover?.startDate)],-1)
+printHtmlPart(30)
+createTagBody(3, {->
+printHtmlPart(23)
+createTagBody(4, {->
+printHtmlPart(24)
+invokeTag('message','g',302,['error':(it)],-1)
+printHtmlPart(25)
+})
+invokeTag('eachError','g',303,['bean':(depositInstance),'field':("currentRollover.startDate")],4)
+printHtmlPart(26)
+})
+invokeTag('hasErrors','g',306,['bean':(depositInstance),'field':("currentRollover.startDate")],3)
+printHtmlPart(31)
+expressionOut.print(hasErrors(bean: depositInstance, field: 'currentRollover.endDate', 'has-error'))
+printHtmlPart(32)
+invokeTag('message','g',311,['code':("rollover.endDate.label"),'default':("End Date")],-1)
+printHtmlPart(33)
+invokeTag('hiddenField','g',314,['id':("endDateCalculator"),'name':("endDateCalculator"),'value':(depositInstance ? depositInstance?.currentRollover?.endDate?:Branch?.get(1).runDate +depositInstance?.fixedDepositTermScheme?.value.toInteger():currentRollover?.endDate)],-1)
+printHtmlPart(34)
+invokeTag('customDatePicker','g',315,['name':("currentRollover.endDate"),'id':("currEndDate"),'precision':("day"),'class':("form-control"),'value':(depositInstance?.currentRollover?.endDate)],-1)
+printHtmlPart(22)
+createTagBody(3, {->
+printHtmlPart(23)
+createTagBody(4, {->
+printHtmlPart(24)
+invokeTag('message','g',320,['error':(it)],-1)
+printHtmlPart(25)
+})
+invokeTag('eachError','g',321,['bean':(depositInstance),'field':("currentRollover.endDate")],4)
+printHtmlPart(26)
+})
+invokeTag('hasErrors','g',324,['bean':(depositInstance),'field':("currentRollover.endDate")],3)
+printHtmlPart(31)
+expressionOut.print(hasErrors(bean: depositInstance, field: 'currentRollover.interestPaymentMode', 'has-error'))
+printHtmlPart(35)
+expressionOut.print(hasErrors(bean: depositInstance, field: 'currentRollover.interestPaymentMode', 'has-error'))
+printHtmlPart(36)
+invokeTag('message','g',331,['code':("rollover.interestPaymentMode.label"),'default':("Interest Payment Mode")],-1)
+printHtmlPart(37)
+invokeTag('select','g',334,['onchange':("getTransferForm(this.value);"),'id':("currentRolloverInterestPaymentModeTypeA"),'name':("currentRollover.interestPaymentMode.id"),'from':(icbs.lov.InterestPaymentMode.findAllByIdNotInList([2,3])),'optionKey':("id"),'optionValue':("description"),'value':(depositInstance?.currentRollover?.interestPaymentMode?.id?depositInstance?.currentRollover?.interestPaymentMode?.id:interestPaymentMode),'class':("many-to-one form-control"),'noSelection':(['null': ''])],-1)
+printHtmlPart(38)
+expressionOut.print(hasErrors(bean: depositInstance, field: 'currentRollover.interestPaymentMode', 'has-error'))
+printHtmlPart(36)
+invokeTag('message','g',341,['code':("rollover.interestPaymentMode.label"),'default':("Interest Payment Mode")],-1)
+printHtmlPart(37)
+invokeTag('select','g',344,['onchange':("getTransferForm(this.value);"),'id':("currentRolloverInterestPaymentModeTypeB"),'name':("currentRollover.interestPaymentMode.id"),'from':(icbs.lov.InterestPaymentMode.findAllByIdNotInList([3])),'optionKey':("id"),'optionValue':("description"),'value':(depositInstance?.currentRollover?.interestPaymentMode?.id?depositInstance?.currentRollover?.interestPaymentMode?.id:interestPaymentMode),'class':("many-to-one form-control"),'noSelection':(['null': ''])],-1)
+printHtmlPart(39)
+expressionOut.print(hasErrors(bean: depositInstance, field: 'currentRollover.interestPaymentMode', 'has-error'))
+printHtmlPart(36)
+invokeTag('message','g',351,['code':("rollover.interestPaymentMode.label"),'default':("Interest Payment Mode")],-1)
+printHtmlPart(37)
+invokeTag('select','g',354,['onchange':("getTransferForm(this.value);"),'id':("currentRolloverInterestPaymentModeTypeC"),'name':("currentRollover.interestPaymentMode.id"),'from':(icbs.lov.InterestPaymentMode.findAllByIdNotInList([1,2])),'optionKey':("id"),'optionValue':("description"),'value':(depositInstance?.currentRollover?.interestPaymentMode?.id?depositInstance?.currentRollover?.interestPaymentMode?.id:interestPaymentMode),'class':("many-to-one form-control"),'noSelection':(['null': ''])],-1)
+printHtmlPart(40)
+expressionOut.print(hasErrors(bean: depositInstance, field: 'currentRollover.interestPaymentMode', 'has-error'))
+printHtmlPart(36)
+invokeTag('message','g',361,['onchange':("getTransferForm(this.value);"),'code':("rollover.interestPaymentMode.label"),'default':("Interest Payment Mode")],-1)
+printHtmlPart(37)
+invokeTag('select','g',364,['id':("currentRolloverInterestPaymentModeTypeD"),'name':("currentRollover.interestPaymentMode.id"),'from':(icbs.lov.InterestPaymentMode.getAll()),'optionKey':("id"),'optionValue':("description"),'value':(depositInstance?.currentRollover?.interestPaymentMode?.id?depositInstance?.currentRollover?.interestPaymentMode?.id:interestPaymentMode),'class':("many-to-one form-control"),'noSelection':(['null': ''])],-1)
+printHtmlPart(41)
+createTagBody(3, {->
+printHtmlPart(23)
+createTagBody(4, {->
+printHtmlPart(24)
+invokeTag('message','g',375,['error':(it)],-1)
+printHtmlPart(25)
+})
+invokeTag('eachError','g',376,['bean':(depositInstance),'field':("currentRollover.interestPaymentMode")],4)
+printHtmlPart(26)
+})
+invokeTag('hasErrors','g',379,['bean':(depositInstance),'field':("currentRollover.interestPaymentMode")],3)
+printHtmlPart(42)
+invokeTag('hiddenField','g',383,['name':("currentRollover.fundedDeposit"),'id':("currentRollover.fundedDeposit.id"),'value':(currentRollover?.fundedDeposit?.id)],-1)
+printHtmlPart(3)
+invokeTag('hiddenField','g',384,['name':("oldfundedDeposit"),'id':("oldfundedDeposit.id"),'value':(currentRollover?.fundedDeposit?.id)],-1)
+printHtmlPart(3)
+invokeTag('hiddenField','g',385,['id':("newFundedDeposit"),'name':("newFundedDeposit"),'value':("")],-1)
+printHtmlPart(3)
+invokeTag('hiddenField','g',386,['id':("depositId"),'name':("depositId"),'value':(params.id)],-1)
+printHtmlPart(43)
+invokeTag('render','g',389,['template':("/deposit/details/depositDetails"),'model':([depositInstance:depositInstance?.currentRollover?.fundedDeposit,boxName:'Transfer to Deposit Account'])],-1)
+printHtmlPart(44)
+})
+invokeTag('captureContent','sitemesh',405,['tag':("main-content")],2)
+printHtmlPart(45)
+createTagBody(2, {->
+printHtmlPart(46)
+if(true && (depositInstance)) {
+printHtmlPart(47)
+}
+printHtmlPart(48)
+expressionOut.print(depositInstance?.id)
+printHtmlPart(49)
+})
+invokeTag('captureContent','sitemesh',421,['tag':("main-actions")],2)
+printHtmlPart(18)
+})
+invokeTag('captureBody','sitemesh',422,[:],1)
+printHtmlPart(50)
+}
+public static final Map JSP_TAGS = new HashMap()
+protected void init() {
+	this.jspTags = JSP_TAGS
+}
+public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
+public static final long LAST_MODIFIED = 1592209176000L
+public static final String EXPRESSION_CODEC = 'html'
+public static final String STATIC_CODEC = 'none'
+public static final String OUT_CODEC = 'html'
+public static final String TAGLIB_CODEC = 'none'
+}

@@ -1,0 +1,1 @@
+$(function(){$("#txnType").change(function(){require_passbook=$(this).find("option:selected").attr("data-require-passbook"),"Yes"==require_passbook?$("#passbookBal").removeAttr("disabled"):($("#passbookBal").attr("disabled","disabled"),$("#passbookBal").val(""),$("#passbookValidate").addClass("hide"))})});

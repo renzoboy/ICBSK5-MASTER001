@@ -1,0 +1,225 @@
+import accounting.bankpayables.Payables
+import org.codehaus.groovy.grails.plugins.metadata.GrailsPlugin
+import org.codehaus.groovy.grails.web.pages.GroovyPage
+import org.codehaus.groovy.grails.web.taglib.*
+import org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException
+import org.springframework.web.util.*
+import grails.util.GrailsUtil
+
+class gsp_icbs_payables_formtemps_form_gsp extends GroovyPage {
+public String getGroovyPageFileName() { "/WEB-INF/grails-app/views/payables/formtemps/_form.gsp" }
+public Object run() {
+Writer out = getOut()
+Writer expressionOut = getExpressionOut()
+registerSitemeshPreprocessMode()
+printHtmlPart(0)
+expressionOut.print(hasErrors(bean: payablesInstance, field: 'trnid', 'has-error'))
+printHtmlPart(1)
+invokeTag('message','g',5,['code':("payables.trnid.label"),'default':("Transaction Number")],-1)
+printHtmlPart(2)
+invokeTag('field','g',8,['name':("trnid"),'value':(fieldValue(bean: payablesInstance, field: 'trnid')),'class':("form-control")],-1)
+printHtmlPart(3)
+createTagBody(1, {->
+printHtmlPart(4)
+createTagBody(2, {->
+printHtmlPart(5)
+invokeTag('message','g',14,['error':(it)],-1)
+printHtmlPart(6)
+})
+invokeTag('eachError','g',15,['bean':(payablesInstance),'field':("trnid")],2)
+printHtmlPart(7)
+})
+invokeTag('hasErrors','g',18,['bean':(payablesInstance),'field':("trnid")],1)
+printHtmlPart(8)
+expressionOut.print(hasErrors(bean: payablesInstance, field: 'transdate', 'has-error'))
+printHtmlPart(9)
+invokeTag('message','g',24,['code':("payables.transdate.label"),'default':("Transaction Date")],-1)
+printHtmlPart(2)
+invokeTag('field','g',27,['name':("transdate"),'value':(fieldValue(bean: payablesInstance, field: 'transdate')),'class':("form-control")],-1)
+printHtmlPart(3)
+createTagBody(1, {->
+printHtmlPart(4)
+createTagBody(2, {->
+printHtmlPart(5)
+invokeTag('message','g',33,['error':(it)],-1)
+printHtmlPart(6)
+})
+invokeTag('eachError','g',34,['bean':(payablesInstance),'field':("transdate")],2)
+printHtmlPart(7)
+})
+invokeTag('hasErrors','g',37,['bean':(payablesInstance),'field':("transdate")],1)
+printHtmlPart(8)
+expressionOut.print(hasErrors(bean: payablesInstance, field: 'clientname', 'has-error'))
+printHtmlPart(10)
+invokeTag('message','g',43,['code':("payables.clientname.label"),'default':("Client")],-1)
+printHtmlPart(11)
+invokeTag('field','g',46,['name':("clientname"),'value':(fieldValue(bean: payablesInstance, field: 'clientname')),'class':("form-control")],-1)
+printHtmlPart(3)
+createTagBody(1, {->
+printHtmlPart(4)
+createTagBody(2, {->
+printHtmlPart(5)
+invokeTag('message','g',52,['error':(it)],-1)
+printHtmlPart(6)
+})
+invokeTag('eachError','g',53,['bean':(payablesInstance),'field':("clientname")],2)
+printHtmlPart(7)
+})
+invokeTag('hasErrors','g',56,['bean':(payablesInstance),'field':("clientname")],1)
+printHtmlPart(8)
+expressionOut.print(hasErrors(bean: payablesInstance, field: 'checkamt', 'has-error'))
+printHtmlPart(12)
+invokeTag('message','g',62,['code':("payables.checkamt.label"),'default':("Amount")],-1)
+printHtmlPart(11)
+invokeTag('field','g',65,['name':("checkamt"),'value':(fieldValue(bean: payablesInstance, field: 'checkamt')),'class':("form-control")],-1)
+printHtmlPart(3)
+createTagBody(1, {->
+printHtmlPart(4)
+createTagBody(2, {->
+printHtmlPart(5)
+invokeTag('message','g',71,['error':(it)],-1)
+printHtmlPart(6)
+})
+invokeTag('eachError','g',72,['bean':(payablesInstance),'field':("checkamt")],2)
+printHtmlPart(7)
+})
+invokeTag('hasErrors','g',75,['bean':(payablesInstance),'field':("checkamt")],1)
+printHtmlPart(8)
+expressionOut.print(hasErrors(bean: bankassetInstance, field: 'glaccount', 'has-error'))
+printHtmlPart(13)
+invokeTag('message','g',81,['code':("bankasset.glaccount.label"),'default':("GL Account")],-1)
+printHtmlPart(11)
+invokeTag('select','g',84,['id':("glaccount"),'name':("glaccount.id"),'from':(icbs.gl.GlAccount.list(max: 100)),'optionKey':("code"),'optionValue':("name"),'required':(""),'class':("many-to-one form-control")],-1)
+printHtmlPart(3)
+createTagBody(1, {->
+printHtmlPart(4)
+createTagBody(2, {->
+printHtmlPart(5)
+invokeTag('message','g',90,['error':(it)],-1)
+printHtmlPart(6)
+})
+invokeTag('eachError','g',91,['bean':(bankassetInstance),'field':("glaccount")],2)
+printHtmlPart(7)
+})
+invokeTag('hasErrors','g',94,['bean':(bankassetInstance),'field':("glaccount")],1)
+printHtmlPart(8)
+expressionOut.print(hasErrors(bean: payablesInstance, field: 'duedate', 'has-error'))
+printHtmlPart(14)
+invokeTag('message','g',100,['code':("payables.duedate.label"),'default':("Due Date")],-1)
+printHtmlPart(11)
+invokeTag('field','g',103,['name':("duedate"),'value':(fieldValue(bean: payablesInstance, field: 'duedate')),'class':("form-control")],-1)
+printHtmlPart(3)
+createTagBody(1, {->
+printHtmlPart(4)
+createTagBody(2, {->
+printHtmlPart(5)
+invokeTag('message','g',109,['error':(it)],-1)
+printHtmlPart(6)
+})
+invokeTag('eachError','g',110,['bean':(payablesInstance),'field':("duedate")],2)
+printHtmlPart(7)
+})
+invokeTag('hasErrors','g',113,['bean':(payablesInstance),'field':("duedate")],1)
+printHtmlPart(15)
+expressionOut.print(hasErrors(bean: payablesInstance, field: 'trntype', 'has-error'))
+printHtmlPart(16)
+invokeTag('message','g',119,['code':("payables.trntype.label"),'default':("Trn. Type")],-1)
+printHtmlPart(11)
+invokeTag('field','g',122,['name':("trntype"),'value':(fieldValue(bean: payablesInstance, field: 'trntype')),'class':("form-control")],-1)
+printHtmlPart(3)
+createTagBody(1, {->
+printHtmlPart(4)
+createTagBody(2, {->
+printHtmlPart(5)
+invokeTag('message','g',128,['error':(it)],-1)
+printHtmlPart(6)
+})
+invokeTag('eachError','g',129,['bean':(payablesInstance),'field':("trntype")],2)
+printHtmlPart(7)
+})
+invokeTag('hasErrors','g',132,['bean':(payablesInstance),'field':("trntype")],1)
+printHtmlPart(17)
+expressionOut.print(hasErrors(bean: bankassetInstance, field: 'trntype', 'has-error'))
+printHtmlPart(18)
+invokeTag('message','g',138,['code':("bankasset.trntype.label"),'default':("Transaction Type")],-1)
+printHtmlPart(11)
+invokeTag('select','g',141,['id':("trntype"),'name':("trntype.id"),'from':(icbs.lov.TxnType.list(max: 100)),'optionKey':("code"),'optionValue':("description"),'required':(""),'class':("many-to-one form-control")],-1)
+printHtmlPart(3)
+createTagBody(1, {->
+printHtmlPart(4)
+createTagBody(2, {->
+printHtmlPart(5)
+invokeTag('message','g',147,['error':(it)],-1)
+printHtmlPart(6)
+})
+invokeTag('eachError','g',148,['bean':(bankassetInstance),'field':("trntype")],2)
+printHtmlPart(7)
+})
+invokeTag('hasErrors','g',151,['bean':(bankassetInstance),'field':("trntype")],1)
+printHtmlPart(8)
+expressionOut.print(hasErrors(bean: payablesInstance, field: 'particulars', 'has-error'))
+printHtmlPart(14)
+invokeTag('message','g',157,['code':("payables.particulars.label"),'default':("Particulars")],-1)
+printHtmlPart(11)
+invokeTag('field','g',160,['name':("particulars"),'value':(fieldValue(bean: payablesInstance, field: 'particulars')),'class':("form-control")],-1)
+printHtmlPart(3)
+createTagBody(1, {->
+printHtmlPart(4)
+createTagBody(2, {->
+printHtmlPart(5)
+invokeTag('message','g',166,['error':(it)],-1)
+printHtmlPart(6)
+})
+invokeTag('eachError','g',167,['bean':(payablesInstance),'field':("particulars")],2)
+printHtmlPart(7)
+})
+invokeTag('hasErrors','g',170,['bean':(payablesInstance),'field':("particulars")],1)
+printHtmlPart(19)
+expressionOut.print(hasErrors(bean: payablesInstance, field: 'acc', 'has-error'))
+printHtmlPart(20)
+invokeTag('message','g',175,['code':("payables.acc.label"),'default':("Acc")],-1)
+printHtmlPart(11)
+invokeTag('field','g',178,['name':("acc"),'value':(fieldValue(bean: payablesInstance, field: 'acc')),'class':("form-control")],-1)
+printHtmlPart(3)
+createTagBody(1, {->
+printHtmlPart(4)
+createTagBody(2, {->
+printHtmlPart(5)
+invokeTag('message','g',184,['error':(it)],-1)
+printHtmlPart(6)
+})
+invokeTag('eachError','g',185,['bean':(payablesInstance),'field':("acc")],2)
+printHtmlPart(7)
+})
+invokeTag('hasErrors','g',188,['bean':(payablesInstance),'field':("acc")],1)
+printHtmlPart(8)
+expressionOut.print(hasErrors(bean: payablesInstance, field: 'apptype', 'has-error'))
+printHtmlPart(21)
+invokeTag('message','g',194,['code':("payables.apptype.label"),'default':("App. Type")],-1)
+printHtmlPart(11)
+invokeTag('field','g',197,['name':("apptype"),'value':(fieldValue(bean: payablesInstance, field: 'apptype')),'class':("form-control")],-1)
+printHtmlPart(3)
+createTagBody(1, {->
+printHtmlPart(4)
+createTagBody(2, {->
+printHtmlPart(5)
+invokeTag('message','g',203,['error':(it)],-1)
+printHtmlPart(6)
+})
+invokeTag('eachError','g',204,['bean':(payablesInstance),'field':("apptype")],2)
+printHtmlPart(7)
+})
+invokeTag('hasErrors','g',207,['bean':(payablesInstance),'field':("apptype")],1)
+printHtmlPart(22)
+}
+public static final Map JSP_TAGS = new HashMap()
+protected void init() {
+	this.jspTags = JSP_TAGS
+}
+public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
+public static final long LAST_MODIFIED = 1592209176000L
+public static final String EXPRESSION_CODEC = 'html'
+public static final String STATIC_CODEC = 'none'
+public static final String OUT_CODEC = 'html'
+public static final String TAGLIB_CODEC = 'none'
+}

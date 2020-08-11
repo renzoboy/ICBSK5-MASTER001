@@ -1,0 +1,1 @@
+function addInput(url,index,target){$.ajax({type:"POST",data:{index:index},url:url,success:function(msg){var item=$(msg);$("#"+target).append(item)},error:function(XMLHttpRequest,textStatus,errorThrown){alert(XMLHttpRequest+textStatus+errorThrown)}})}function removeInput(input){$(input).parent().parent().remove()}

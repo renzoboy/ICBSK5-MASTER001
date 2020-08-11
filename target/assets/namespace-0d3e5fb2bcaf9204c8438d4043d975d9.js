@@ -1,0 +1,1 @@
+var ns=function(namespace){return namespace.split(".").reduce(function(holder,name){return holder[name]=holder[name]||{},holder[name]},window)};

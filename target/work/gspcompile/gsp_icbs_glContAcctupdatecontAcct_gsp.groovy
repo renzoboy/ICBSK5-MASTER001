@@ -1,0 +1,162 @@
+import icbs.gl.GlContigentAccount
+import org.codehaus.groovy.grails.plugins.metadata.GrailsPlugin
+import org.codehaus.groovy.grails.web.pages.GroovyPage
+import org.codehaus.groovy.grails.web.taglib.*
+import org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException
+import org.springframework.web.util.*
+import grails.util.GrailsUtil
+
+class gsp_icbs_glContAcctupdatecontAcct_gsp extends GroovyPage {
+public String getGroovyPageFileName() { "/WEB-INF/grails-app/views/glContAcct/updatecontAcct.gsp" }
+public Object run() {
+Writer out = getOut()
+Writer expressionOut = getExpressionOut()
+registerSitemeshPreprocessMode()
+printHtmlPart(0)
+printHtmlPart(1)
+printHtmlPart(2)
+createTagBody(1, {->
+printHtmlPart(3)
+invokeTag('captureMeta','sitemesh',15,['gsp_sm_xmlClosingForEmptyTag':(""),'name':("layout"),'content':("main")],-1)
+printHtmlPart(4)
+invokeTag('set','g',17,['var':("entityName"),'value':(message(code: 'ContigentAccount.label', default: 'Contigent Account'))],-1)
+printHtmlPart(5)
+createTagBody(2, {->
+createTagBody(3, {->
+invokeTag('message','g',18,['code':("default.list.label"),'args':([entityName])],-1)
+})
+invokeTag('captureTitle','sitemesh',18,[:],3)
+})
+invokeTag('wrapTitleTag','sitemesh',18,[:],2)
+printHtmlPart(6)
+expressionOut.print(createLink(controller:'loan', action:'getLoanDetailsAjax'))
+printHtmlPart(7)
+expressionOut.print(createLink(controller: 'loan', action:'search'))
+printHtmlPart(8)
+})
+invokeTag('captureHead','sitemesh',135,[:],1)
+printHtmlPart(9)
+createTagBody(1, {->
+printHtmlPart(10)
+createClosureForHtmlPart(11, 2)
+invokeTag('captureContent','sitemesh',140,['tag':("breadcrumbs")],2)
+printHtmlPart(12)
+createTagBody(2, {->
+printHtmlPart(13)
+createTagBody(3, {->
+printHtmlPart(14)
+for( ContigentAccountInstance in (GlContAccts) ) {
+printHtmlPart(15)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'sssNo', 'has-error'))
+printHtmlPart(16)
+invokeTag('message','g',151,['code':("reference.label"),'default':("Loan Account Name")],-1)
+printHtmlPart(17)
+invokeTag('textField','g',155,['name':("oldloanAccountName"),'id':("oldloanAccountName"),'value':(ContigentAccountInstance?.loan?.customer?.displayName),'class':("form-control"),'disabled':("disable")],-1)
+printHtmlPart(18)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'sssNo', 'has-error'))
+printHtmlPart(16)
+invokeTag('message','g',165,['code':("reference.label"),'default':("Loan Account no")],-1)
+printHtmlPart(17)
+invokeTag('textField','g',169,['name':("oldloanAccountNo"),'id':("oldloanAccountNo"),'value':(ContigentAccountInstance?.loan?.accountNo),'class':("form-control"),'disabled':("disable")],-1)
+printHtmlPart(19)
+expressionOut.print(hasErrors(bean: loanLedgerInstance, field: 'loan', 'has-error'))
+printHtmlPart(20)
+invokeTag('message','g',179,['code':("loanLedger.loan.label"),'default':("Update Loan Account Info")],-1)
+printHtmlPart(21)
+invokeTag('field','g',182,['name':("accountNo"),'id':("accountNo"),'value':(""),'class':("form-control"),'readonly':("true")],-1)
+printHtmlPart(22)
+invokeTag('hiddenField','g',190,['id':("loan"),'name':("loan.id"),'value':("")],-1)
+printHtmlPart(1)
+invokeTag('hiddenField','g',191,['name':("contigentID"),'id':("contigentID"),'value':(ContigentAccountInstance?.id)],-1)
+printHtmlPart(23)
+expressionOut.print(hasErrors(bean: loanLedgerInstance, field: 'loan', 'has-error'))
+printHtmlPart(24)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'customerCode1', 'has-error'))
+printHtmlPart(25)
+invokeTag('message','g',236,['code':("customer.customerCode1.label"),'default':("Contigent Type")],-1)
+printHtmlPart(26)
+invokeTag('select','g',240,['id':("contigent"),'name':("contigent"),'from':(icbs.lov.ContigentAccount.findAllByStatus(true)),'optionKey':("id"),'optionValue':("description"),'value':(ContigentAccountInstance?.contigent?.id),'class':("form-control"),'onchange':("validateContigent(this.value);")],-1)
+printHtmlPart(27)
+invokeTag('hiddenField','g',250,['id':("oldloan"),'name':("oldloan"),'value':(ContigentAccountInstance?.loan?.id)],-1)
+printHtmlPart(1)
+invokeTag('hiddenField','g',251,['id':("oldaccountNo"),'name':("oldaccountNo"),'value':(ContigentAccountInstance?.loan?.accountNo)],-1)
+printHtmlPart(28)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'sssNo', 'has-error'))
+printHtmlPart(16)
+invokeTag('message','g',256,['code':("reference.label"),'default':("Title No")],-1)
+printHtmlPart(17)
+invokeTag('textField','g',260,['name':("titleNo"),'id':("titleNo"),'value':(ContigentAccountInstance?.titleNo),'class':("form-control")],-1)
+printHtmlPart(18)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'sssNo', 'has-error'))
+printHtmlPart(16)
+invokeTag('message','g',270,['code':("reference.label"),'default':("Nominal Value")],-1)
+printHtmlPart(17)
+invokeTag('field','g',274,['type':("number"),'name':("nominalValue"),'id':("nominalValue"),'value':(ContigentAccountInstance?.nominalValue),'class':("form-control")],-1)
+printHtmlPart(18)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'sssNo', 'has-error'))
+printHtmlPart(16)
+invokeTag('message','g',284,['code':("reference.label"),'default':("Current Custodian")],-1)
+printHtmlPart(17)
+invokeTag('textField','g',288,['name':("currentCustodian"),'id':("currentCustodian"),'value':(ContigentAccountInstance?.currentCustodian),'class':("form-control")],-1)
+printHtmlPart(18)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'sssNo', 'has-error'))
+printHtmlPart(16)
+invokeTag('message','g',298,['code':("reference.label"),'default':("Registered Mortgage(Amount)")],-1)
+printHtmlPart(29)
+invokeTag('textField','g',303,['name':("registeredMortgage"),'id':("registeredMortgage"),'value':(ContigentAccountInstance?.registeredMortgage),'class':("form-control truncated")],-1)
+printHtmlPart(18)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'sssNo', 'has-error'))
+printHtmlPart(16)
+invokeTag('message','g',313,['code':("reference.label"),'default':("Remarks")],-1)
+printHtmlPart(17)
+invokeTag('textField','g',317,['name':("remarks"),'id':("remarks"),'value':(ContigentAccountInstance?.remarks),'class':("form-control")],-1)
+printHtmlPart(30)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'sssNo', 'has-error'))
+printHtmlPart(16)
+invokeTag('message','g',328,['code':("reference.label"),'default':("Reference")],-1)
+printHtmlPart(31)
+invokeTag('textField','g',333,['name':("reference"),'id':("reference"),'value':(ContigentAccountInstance?.reference),'class':("form-control")],-1)
+printHtmlPart(32)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'sssNo', 'has-error'))
+printHtmlPart(16)
+invokeTag('message','g',343,['code':("particulars.label"),'default':("Particulars")],-1)
+printHtmlPart(17)
+invokeTag('textArea','g',347,['name':("particulars"),'id':("particulars"),'value':(ContigentAccountInstance?.particulars),'rows':("5"),'cols':("40"),'class':("form-control")],-1)
+printHtmlPart(33)
+expressionOut.print(hasErrors(bean: txnTemplateInstance, field: 'configItemStatus', 'has-error'))
+printHtmlPart(34)
+invokeTag('message','g',358,['code':("txnTemplate.configItemStatus.label"),'default':("Status")],-1)
+printHtmlPart(35)
+invokeTag('select','g',361,['id':("status"),'name':("status"),'from':(icbs.lov.ConfigItemStatus.list()),'optionKey':("id"),'required':(""),'value':(ContigentAccountInstance?.status?.id),'class':("many-to-one form-control")],-1)
+printHtmlPart(36)
+}
+printHtmlPart(1)
+})
+invokeTag('form','g',364,['name':("myFormcontigent"),'id':("myFormcontigent"),'url':([action:'updatecontAcctajax',controller:'GlContAcct']),'onsubmit':("callLoadingDialog();")],3)
+printHtmlPart(37)
+})
+invokeTag('captureContent','sitemesh',365,['tag':("main-content")],2)
+printHtmlPart(38)
+createTagBody(2, {->
+printHtmlPart(39)
+createClosureForHtmlPart(40, 3)
+invokeTag('link','g',375,['action':("index")],3)
+printHtmlPart(41)
+})
+invokeTag('captureContent','sitemesh',376,['tag':("main-actions")],2)
+printHtmlPart(9)
+})
+invokeTag('captureBody','sitemesh',377,[:],1)
+printHtmlPart(42)
+}
+public static final Map JSP_TAGS = new HashMap()
+protected void init() {
+	this.jspTags = JSP_TAGS
+}
+public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
+public static final long LAST_MODIFIED = 1592209176000L
+public static final String EXPRESSION_CODEC = 'html'
+public static final String STATIC_CODEC = 'none'
+public static final String OUT_CODEC = 'html'
+public static final String TAGLIB_CODEC = 'none'
+}

@@ -1,0 +1,363 @@
+import org.codehaus.groovy.grails.plugins.metadata.GrailsPlugin
+import org.codehaus.groovy.grails.web.pages.GroovyPage
+import org.codehaus.groovy.grails.web.taglib.*
+import org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException
+import org.springframework.web.util.*
+import grails.util.GrailsUtil
+
+class gsp_icbs_customer_form_relation_onetomany_relation_gsp extends GroovyPage {
+public String getGroovyPageFileName() { "/WEB-INF/grails-app/views/customer/form/relation/onetomany/_relation.gsp" }
+public Object run() {
+Writer out = getOut()
+Writer expressionOut = getExpressionOut()
+registerSitemeshPreprocessMode()
+printHtmlPart(0)
+printHtmlPart(1)
+expressionOut.print(i)
+printHtmlPart(2)
+invokeTag('hiddenField','g',9,['name':("relations[${i}].deleted"),'value':("false")],-1)
+printHtmlPart(3)
+invokeTag('set','g',10,['var':("disabled"),'value':("false")],-1)
+printHtmlPart(3)
+if(true && (relation?.id)) {
+printHtmlPart(4)
+invokeTag('hiddenField','g',12,['name':("relations[${i}].id"),'value':(relation?.id)],-1)
+printHtmlPart(4)
+invokeTag('hiddenField','g',13,['name':("relations[${i}].new"),'value':("false")],-1)
+printHtmlPart(3)
+}
+else {
+printHtmlPart(4)
+invokeTag('hiddenField','g',16,['name':("relations[${i}].new"),'value':("true")],-1)
+printHtmlPart(5)
+expressionOut.print(i)
+printHtmlPart(6)
+expressionOut.print(choice)
+printHtmlPart(7)
+}
+printHtmlPart(3)
+if(true && (relation?.customer2?.id)) {
+printHtmlPart(4)
+invokeTag('set','g',20,['var':("disabled"),'value':("disabled")],-1)
+printHtmlPart(4)
+invokeTag('hiddenField','g',21,['id':("relations[${i}].customer2"),'name':("relations[${i}].customer2.id"),'value':(relation.customer2.id)],-1)
+printHtmlPart(4)
+invokeTag('hiddenField','g',22,['id':("relations[${i}].customer2.type"),'name':("relations[${i}].customer2.type.id"),'value':(relation.customer2.type.id)],-1)
+printHtmlPart(3)
+}
+else {
+printHtmlPart(4)
+invokeTag('hiddenField','g',25,['id':("relations[${i}].customer2.type"),'name':("relations[${i}].customer2.type.id"),'value':("1")],-1)
+printHtmlPart(8)
+invokeTag('hiddenField','g',27,['id':("relations[${i}].customer2.title"),'name':("relations[${i}].customer2.title.id"),'value':("65")],-1)
+printHtmlPart(4)
+invokeTag('hiddenField','g',28,['id':("relations[${i}].customer2.birthPlace"),'name':("relations[${i}].customer2.birthPlace"),'value':("none")],-1)
+printHtmlPart(4)
+invokeTag('hiddenField','g',29,['id':("relations[${i}].customer2.civilStatus"),'name':("relations[${i}].customer2.civilStatus.id"),'value':("60")],-1)
+printHtmlPart(4)
+invokeTag('hiddenField','g',30,['id':("relations[${i}].customer2.civilStatus"),'name':("relations[${i}].customer2.civilStatus.id"),'value':("60")],-1)
+printHtmlPart(4)
+invokeTag('hiddenField','g',31,['id':("relations[${i}].customer2.gender"),'name':("relations[${i}].customer2.gender.id"),'value':("1")],-1)
+printHtmlPart(9)
+}
+printHtmlPart(3)
+if(true && (choice=='0')) {
+printHtmlPart(4)
+invokeTag('hiddenField','g',35,['name':("relations[${i}].type"),'class':("relation-spouse"),'value':("410")],-1)
+printHtmlPart(3)
+}
+printHtmlPart(3)
+if(true && (choice=='1')) {
+printHtmlPart(4)
+invokeTag('hiddenField','g',38,['name':("relations[${i}].type"),'class':("relation-father"),'value':("48")],-1)
+printHtmlPart(3)
+}
+printHtmlPart(3)
+if(true && (choice=='2')) {
+printHtmlPart(4)
+invokeTag('hiddenField','g',41,['name':("relations[${i}].type"),'class':("relation-mother"),'value':("47")],-1)
+printHtmlPart(3)
+}
+printHtmlPart(3)
+if(true && (choice=='3')) {
+printHtmlPart(10)
+expressionOut.print(hasErrors(bean: relationInstance, field: 'relations['+i+'].type', 'has-error'))
+printHtmlPart(11)
+expressionOut.print(i)
+printHtmlPart(12)
+invokeTag('message','g',46,['code':("relation.type.label"),'default':("Relation Type Id")],-1)
+printHtmlPart(13)
+invokeTag('select','g',50,['id':("relations[${i}].type"),'name':("relations[${i}].type.id"),'from':(icbs.lov.Lov.findAllByGroupCodeAndStatusAndIdNotInListAndItemCodeLike("CRT",true,[47,48],"1%")),'optionKey':("id"),'optionValue':("itemValue"),'value':(relation?.type?.id),'class':("form-control")],-1)
+printHtmlPart(14)
+createTagBody(2, {->
+printHtmlPart(15)
+createTagBody(3, {->
+printHtmlPart(16)
+invokeTag('message','g',55,['error':(it)],-1)
+printHtmlPart(17)
+})
+invokeTag('eachError','g',56,['bean':(customerInstance),'field':("relations[${i}].type")],3)
+printHtmlPart(18)
+})
+invokeTag('hasErrors','g',59,['bean':(customerInstance),'field':("relations[${i}].type")],2)
+printHtmlPart(19)
+}
+printHtmlPart(3)
+if(true && (choice=='4')) {
+printHtmlPart(10)
+expressionOut.print(hasErrors(bean: relationInstance, field: 'relations['+i+'].type', 'has-error'))
+printHtmlPart(11)
+expressionOut.print(i)
+printHtmlPart(12)
+invokeTag('message','g',66,['code':("relation.type.label"),'default':("Relation Type Id")],-1)
+printHtmlPart(20)
+invokeTag('select','g',70,['"id':("relations[${i}].type"),'name':("relations[${i}].type.id"),'from':(icbs.lov.Lov.findAllByGroupCodeAndStatusAndItemCodeLike("CRT",true,"2%")),'optionKey':("id"),'optionValue':("itemValue"),'value':(relation?.type?.id),'class':("form-control")],-1)
+printHtmlPart(14)
+createTagBody(2, {->
+printHtmlPart(15)
+createTagBody(3, {->
+printHtmlPart(16)
+invokeTag('message','g',75,['error':(it)],-1)
+printHtmlPart(17)
+})
+invokeTag('eachError','g',76,['bean':(customerInstance),'field':("relations[${i}].type")],3)
+printHtmlPart(18)
+})
+invokeTag('hasErrors','g',79,['bean':(customerInstance),'field':("relations[${i}].type")],2)
+printHtmlPart(19)
+}
+printHtmlPart(21)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'relations['+i+'].customer2.title', 'has-error'))
+printHtmlPart(22)
+expressionOut.print(i)
+printHtmlPart(23)
+invokeTag('message','g',86,['code':("customer.title.label"),'default':("Title")],-1)
+printHtmlPart(24)
+invokeTag('select','g',90,['disabled':(disabled),'name':("relations[${i}].customer2.title.id"),'from':(icbs.lov.Lov.findAllByGroupCodeAndStatusAndIdNotEqual("CT",true,65)),'optionKey':("id"),'optionValue':("itemValue"),'value':(relation?.customer2?.title?.id),'class':("form-control"),'noSelection':(['null': ''])],-1)
+printHtmlPart(25)
+invokeTag('textField','g',91,['disabled':(disabled),'name':("relations[${i}].customer2.title.id"),'maxlength':("50"),'value':(relation?.customer2?.name1),'class':("form-control")],-1)
+printHtmlPart(26)
+createTagBody(1, {->
+printHtmlPart(27)
+createTagBody(2, {->
+printHtmlPart(28)
+invokeTag('message','g',96,['error':(it)],-1)
+printHtmlPart(29)
+})
+invokeTag('eachError','g',97,['bean':(customerInstance),'field':("relations[${i}].customer2.title")],2)
+printHtmlPart(30)
+})
+invokeTag('hasErrors','g',100,['bean':(customerInstance),'field':("relations[${i}].customer2.title")],1)
+printHtmlPart(31)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'relations['+i+'].customer2.name1', 'has-error'))
+printHtmlPart(22)
+expressionOut.print(i)
+printHtmlPart(32)
+invokeTag('message','g',106,['code':("customer.name1.label"),'default':("First Name")],-1)
+printHtmlPart(24)
+invokeTag('textField','g',110,['disabled':(disabled),'name':("relations[${i}].customer2.name1"),'maxlength':("50"),'value':(relation?.customer2?.name1),'class':("form-control")],-1)
+printHtmlPart(33)
+createTagBody(1, {->
+printHtmlPart(27)
+createTagBody(2, {->
+printHtmlPart(28)
+invokeTag('message','g',115,['error':(it)],-1)
+printHtmlPart(29)
+})
+invokeTag('eachError','g',116,['bean':(customerInstance),'field':("relations[${i}].customer2.name1")],2)
+printHtmlPart(30)
+})
+invokeTag('hasErrors','g',119,['bean':(customerInstance),'field':("relations[${i}].customer2.name1")],1)
+printHtmlPart(34)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'relations['+i+'].customer2.name2', 'has-error'))
+printHtmlPart(22)
+expressionOut.print(i)
+printHtmlPart(35)
+invokeTag('message','g',125,['code':("customer.name2.label"),'default':("Middle Name")],-1)
+printHtmlPart(36)
+invokeTag('textField','g',129,['disabled':(disabled),'name':("relations[${i}].customer2.name2"),'maxlength':("50"),'value':(relation?.customer2?.name2),'class':("form-control")],-1)
+printHtmlPart(4)
+createTagBody(1, {->
+printHtmlPart(37)
+createTagBody(2, {->
+printHtmlPart(38)
+invokeTag('message','g',134,['error':(it)],-1)
+printHtmlPart(39)
+})
+invokeTag('eachError','g',135,['bean':(customerInstance),'field':("relations[${i}].customer2.name2")],2)
+printHtmlPart(40)
+})
+invokeTag('hasErrors','g',138,['bean':(customerInstance),'field':("relations[${i}].customer2.name2")],1)
+printHtmlPart(34)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'relations['+i+'].customer2.name3', 'has-error'))
+printHtmlPart(22)
+expressionOut.print(i)
+printHtmlPart(41)
+invokeTag('message','g',144,['code':("customer.name3.label"),'default':("Last Name")],-1)
+printHtmlPart(24)
+invokeTag('textField','g',148,['disabled':(disabled),'name':("relations[${i}].customer2.name3"),'maxlength':("50"),'value':(relation?.customer2?.name3),'class':("form-control")],-1)
+printHtmlPart(33)
+createTagBody(1, {->
+printHtmlPart(27)
+createTagBody(2, {->
+printHtmlPart(28)
+invokeTag('message','g',153,['error':(it)],-1)
+printHtmlPart(29)
+})
+invokeTag('eachError','g',154,['bean':(customerInstance),'field':("relations[${i}].customer2.name3")],2)
+printHtmlPart(30)
+})
+invokeTag('hasErrors','g',157,['bean':(customerInstance),'field':("relations[${i}].customer2.name3")],1)
+printHtmlPart(42)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'relations['+i+'].customer2.name4', 'has-error'))
+printHtmlPart(22)
+expressionOut.print(i)
+printHtmlPart(43)
+invokeTag('message','g',162,['code':("customer.name4.label"),'default':("Nickname")],-1)
+printHtmlPart(44)
+invokeTag('textField','g',165,['disabled':(disabled),'name':("relations[${i}].customer2.name4"),'maxlength':("50"),'value':(relation?.customer2?.name4),'class':("form-control")],-1)
+printHtmlPart(33)
+createTagBody(1, {->
+printHtmlPart(27)
+createTagBody(2, {->
+printHtmlPart(28)
+invokeTag('message','g',170,['error':(it)],-1)
+printHtmlPart(29)
+})
+invokeTag('eachError','g',171,['bean':(customerInstance),'field':("relations[${i}].customer2.name4")],2)
+printHtmlPart(30)
+})
+invokeTag('hasErrors','g',174,['bean':(customerInstance),'field':("relations[${i}].customer2.name4")],1)
+printHtmlPart(42)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'relations['+i+'].customer2.birthDate', 'has-error'))
+printHtmlPart(45)
+expressionOut.print(i)
+printHtmlPart(46)
+invokeTag('message','g',179,['code':("customer.birthDate.label"),'default':("Birth Date")],-1)
+printHtmlPart(24)
+invokeTag('customDatePicker','g',183,['disabled':(disabled),'name':("relations[${i}].customer2.birthDate"),'precision':("day"),'value':(relation?.customer2?.birthDate),'class':("form-control")],-1)
+printHtmlPart(33)
+createTagBody(1, {->
+printHtmlPart(27)
+createTagBody(2, {->
+printHtmlPart(28)
+invokeTag('message','g',188,['error':(it)],-1)
+printHtmlPart(29)
+})
+invokeTag('eachError','g',189,['bean':(customerInstance),'field':("relations[${i}].customer2.birthDate")],2)
+printHtmlPart(30)
+})
+invokeTag('hasErrors','g',192,['bean':(customerInstance),'field':("relations[${i}].customer2.birthDate")],1)
+printHtmlPart(47)
+if(true && (!hide)) {
+printHtmlPart(48)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'relations['+i+'].customer2.gender', 'has-error'))
+printHtmlPart(22)
+expressionOut.print(i)
+printHtmlPart(49)
+invokeTag('message','g',198,['code':("customer.gender.label"),'default':("Gender")],-1)
+printHtmlPart(24)
+invokeTag('select','g',202,['disabled':(disabled),'name':("relations[${i}].customer2.gender.id"),'from':(icbs.lov.Gender.findAllByIdNotInListAndStatus(['1'],true)),'optionKey':("id"),'optionValue':("description"),'value':(relation?.customer2?.gender?.id),'class':("form-control"),'noSelection':(['null': ''])],-1)
+printHtmlPart(25)
+invokeTag('textField','g',203,['disabled':(disabled),'name':("relations[${i}].customer2.gender.id"),'maxlength':("50"),'value':(relation?.customer2?.name1),'class':("form-control")],-1)
+printHtmlPart(26)
+createTagBody(2, {->
+printHtmlPart(27)
+createTagBody(3, {->
+printHtmlPart(28)
+invokeTag('message','g',208,['error':(it)],-1)
+printHtmlPart(29)
+})
+invokeTag('eachError','g',209,['bean':(customerInstance),'field':("relations[${i}].customer2.gender")],3)
+printHtmlPart(30)
+})
+invokeTag('hasErrors','g',212,['bean':(customerInstance),'field':("relations[${i}].customer2.gender")],2)
+printHtmlPart(47)
+}
+printHtmlPart(48)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'relations['+i+'].customer2.civilStatus', 'has-error'))
+printHtmlPart(22)
+expressionOut.print(i)
+printHtmlPart(50)
+invokeTag('message','g',218,['code':("customer.civilStatus.label"),'default':("Civil Status")],-1)
+printHtmlPart(24)
+invokeTag('select','g',222,['disabled':(disabled),'name':("relations[${i}].customer2.civilStatus.id"),'from':(icbs.lov.Lov.findAllByGroupCodeAndStatusAndIdNotEqual("CS",true,60)),'optionKey':("id"),'optionValue':("itemValue"),'value':(relation?.customer2?.civilStatus?.id),'class':("form-control"),'noSelection':(['null': ''])],-1)
+printHtmlPart(25)
+invokeTag('textField','g',223,['disabled':(disabled),'name':("relations[${i}].customer2.civilStatus.id"),'maxlength':("50"),'value':(relation?.customer2?.name1),'class':("form-control")],-1)
+printHtmlPart(26)
+createTagBody(1, {->
+printHtmlPart(27)
+createTagBody(2, {->
+printHtmlPart(28)
+invokeTag('message','g',228,['error':(it)],-1)
+printHtmlPart(29)
+})
+invokeTag('eachError','g',229,['bean':(customerInstance),'field':("relations[${i}].customer2.civilStatus")],2)
+printHtmlPart(30)
+})
+invokeTag('hasErrors','g',232,['bean':(customerInstance),'field':("relations[${i}].customer2.civilStatus")],1)
+printHtmlPart(31)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'relations['+i+'].customer2.sourceOfIncome', 'has-error'))
+printHtmlPart(45)
+expressionOut.print(i)
+printHtmlPart(51)
+invokeTag('message','g',238,['code':("customer.sourceOfIncome.label"),'default':("Source of Income")],-1)
+printHtmlPart(24)
+invokeTag('textField','g',242,['disabled':(disabled),'name':("relations[${i}].customer2.sourceOfIncome"),'maxlength':("50"),'value':(relation?.customer2?.sourceOfIncome),'class':("form-control")],-1)
+printHtmlPart(33)
+createTagBody(1, {->
+printHtmlPart(27)
+createTagBody(2, {->
+printHtmlPart(28)
+invokeTag('message','g',247,['error':(it)],-1)
+printHtmlPart(29)
+})
+invokeTag('eachError','g',248,['bean':(customerInstance),'field':("relations[${i}].customer2.sourceOfIncome")],2)
+printHtmlPart(30)
+})
+invokeTag('hasErrors','g',251,['bean':(customerInstance),'field':("relations[${i}].customer2.sourceOfIncome")],1)
+printHtmlPart(52)
+expressionOut.print(hasErrors(bean: customerInstance, field: 'relations['+i+'].customer2.birthPlace', 'has-error'))
+printHtmlPart(45)
+expressionOut.print(i)
+printHtmlPart(53)
+invokeTag('message','g',258,['code':("customer.birthPlace.label"),'default':("Birth Place")],-1)
+printHtmlPart(24)
+invokeTag('textField','g',262,['disabled':(disabled),'name':("relations[${i}].customer2.birthPlace"),'maxlength':("50"),'value':(relation?.customer2?.birthPlace),'class':("form-control")],-1)
+printHtmlPart(33)
+createTagBody(1, {->
+printHtmlPart(27)
+createTagBody(2, {->
+printHtmlPart(28)
+invokeTag('message','g',267,['error':(it)],-1)
+printHtmlPart(29)
+})
+invokeTag('eachError','g',268,['bean':(customerInstance),'field':("relations[${i}].customer2.birthPlace")],2)
+printHtmlPart(30)
+})
+invokeTag('hasErrors','g',271,['bean':(customerInstance),'field':("relations[${i}].customer2.birthPlace")],1)
+printHtmlPart(54)
+if(true && (choice=='0')) {
+printHtmlPart(55)
+}
+printHtmlPart(56)
+if(true && (choice=='1')) {
+printHtmlPart(57)
+}
+printHtmlPart(56)
+if(true && (choice=='2')) {
+printHtmlPart(58)
+}
+printHtmlPart(59)
+}
+public static final Map JSP_TAGS = new HashMap()
+protected void init() {
+	this.jspTags = JSP_TAGS
+}
+public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
+public static final long LAST_MODIFIED = 1592209176000L
+public static final String EXPRESSION_CODEC = 'html'
+public static final String STATIC_CODEC = 'none'
+public static final String OUT_CODEC = 'html'
+public static final String TAGLIB_CODEC = 'none'
+}
