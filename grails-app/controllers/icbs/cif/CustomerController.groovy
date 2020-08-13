@@ -469,7 +469,7 @@ class CustomerController{
             println 'Log Description:' + description
             auditLogService.insert('060', 'CIF00040', description, 'customer', null, null, 'customer/customerInquiry/'+ Customer.read(params.id).id, Customer.read(params.id).id)
 
-            render (template:'update/customerEditMembership',model:[message:message,customerInstance:customerInstance,saved:'saved']) as JSON
+           redirect  (controller:'customer' , action:'customerMembership', id:customerInstance.id )
             return
 
      }
@@ -872,6 +872,17 @@ class CustomerController{
         }        
     }
     //============================================================
+       //+++++++++++++++++++ update customer membership +++++++++++++++++++++
+    def updateCustomMembership(){
+        println("#####updateCustomMembership ")
+        if(params.id){
+           println "params " + params
+           def customerInstance = Customer.get(params.id)
+           println "CIMEM? " + customerInstance
+           [customerInstance:customerInstance]	
+        }
+
+    }
     //============== for viewing of accepted customer collateral
     def viewCustomerCollateral(){
         if(params.id){

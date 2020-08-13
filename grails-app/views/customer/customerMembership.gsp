@@ -121,7 +121,7 @@
         </content>
         <content tag="main-actions">
             <ul>
-                <li><a href="#" onclick="openCustomerMembership();">Update Customer Membership</a></li>
+                <li><g:link action="updateCustomMembership" id="${customerInstance?.id}">Update Customer Membership</g:link></li>
                 <li><g:link action="customerInquiry" id="${customerInstance?.id}">Back to Customer Inquiry</g:link></li>
             </ul>
         </content>
