@@ -35,7 +35,9 @@
 	 <div class="col-sm-8">
             <g:hiddenField name="type.id" value="${customerInstance?.type?.id}"/>
             <g:select id="type" onchange="changeVerificationForm()" disabled="disabled"name="type.id" from="${icbs.lov.CustomerType.findAllByStatusAndIdNotInList(true,['4'])}" optionKey="id" optionValue ="description" value="${customerInstance?.type?.id}" class="form-control" />
+            
             <g:hasErrors bean="${customerInstance}" field="type">
+                <br>
                 <div class="controls">
                     <span class="help-block">
                         <g:eachError bean="${customerInstance}" field="type">
@@ -52,10 +54,13 @@
 	</label>
 	<div class="col-sm-8">
             <g:select id="group" name="group.id" from="${icbs.admin.CustomerGroup.findAll{configItemStatus.id == 2}}" optionKey="id" optionValue ="name" value="${customerInstance?.group?.id}" class="form-control" />
+            
             <g:hasErrors bean="${customerInstance}" field="group">
+                <br>
                 <div class="controls">
                     <span class="help-block">
                         <g:eachError bean="${customerInstance}" field="group">
+                            <br>
                             <g:message error="${it}" /><br/>
                         </g:eachError>
                     </span>
@@ -69,16 +74,18 @@
 		<span class="required-indicator">*</span>
 	</label>
       
-	<div class="col-sm-8"><g:select id="title" name="title.id" from="${icbs.lov.Lov.findAllByGroupCodeAndStatusAndIdNotEqual("CT",true,65)}" optionKey="id" optionValue ="itemValue" value="${customerInstance?.title?.id}"class="form-control" noSelection="['null': '']"/></div>
-        <g:hasErrors bean="${customerInstance}" field="title">
-            <div class="controls">
-                <span class="help-block">
-                    <g:eachError bean="${customerInstance}" field="title">
-                        <g:message error="${it}" /><br/>
-                    </g:eachError>
-                </span>
-            </div>
-        </g:hasErrors>
+	<div class="col-sm-8"><g:select id="title" name="title.id" from="${icbs.lov.Lov.findAllByGroupCodeAndStatusAndIdNotEqual("CT",true,65)}" optionKey="id" optionValue ="itemValue" value="${customerInstance?.title?.id}"class="form-control" noSelection="['null': '']"/>
+                    <br/>
+                    <g:hasErrors bean="${customerInstance}" field="title">
+                        <div class="controls">
+                                  <span class="help-block">
+                                    <g:eachError bean="${customerInstance}" field="title">
+                                        <g:message error="${it}"/>
+                                    </g:eachError>
+                              </span>
+                        </div>
+                    </g:hasErrors>
+        </div>
 </div>
 <div class="form-group fieldcontain ${hasErrors(bean: customerInstance, field: 'name1', 'has-error')} ">
 	<label class="control-label col-sm-4" for="name1">
@@ -230,24 +237,33 @@
              </g:hasErrors>    
         </div>
 </div>
-<div class="form-group fieldcontain ${hasErrors(bean: customerInstance, field: 'birthPlace', 'has-error')} ">
-	<label class="control-label col-sm-4" for="birthPlace">
-		<g:message code="customer.birthPlace.label" default="Birth Place" />
+<div class="form-group fieldcontain ${hasErrors(bean: customerInstance, field: 'custBirthPlace', 'has-error')} ">
+	<label class="control-label col-sm-4" for="custBirthPlace">
+		<g:message code="customer.custBirthPlace.label" default="Birth Place" />
 		<span class="required-indicator">*</span>
 	</label>
 	  <div class="col-sm-8">
                 <g:if test="${session["customerpagevalidator"] == "edit"}">
                     
-                    <g:select id="birthPlace" name="birthPlace" noSelection="${['':'Select Birth Place']}" from="${icbs.lov.Town.list()}" optionKey="id" optionValue="description" value="${icbs.lov.Town.findByDescription(customerInstance?.birthPlace).id}" class="form-control"/>
-                    
+                    <%-- <g:select id="birthPlace" name="birthPlace" noSelection="${['':'Select Birth Place']}" from="${icbs.lov.Town.list()}" optionKey="id" optionValue="description" value="${icbs.lov.Town.findByDescription(customerInstance?.birthPlace).id}" class="form-control"/> --%>
+                    <g:select id="custBirthPlace" name="custBirthPlace" noSelection="${['':'Select Birth Place']}" from="${icbs.lov.Town.list()}" optionKey="id" optionValue="description" value="${icbs.lov.Town.findByDescription(customerInstance.custBirthPlace?.description).id}" class="form-control"/>
+                    <g:hiddenField id="birthPlace" name="birthPlace" value="" />
                 </g:if>
                 <g:else>
-                    <g:select name="birthPlace" noSelection="${['':'Select Birth Place']}" from="${icbs.lov.Town.findAll{id != 1}}" optionKey="id" optionValue="description" value="${customerInstance?.birthPlace}" class="form-control"/>
+                    <%-- <g:select name="birthPlace" noSelection="${['':'Select Birth Place']}" from="${icbs.lov.Town.findAll{id != 1}}" optionKey="id" optionValue="description" value="${customerInstance?.birthPlace}" class="form-control"/> --%>
+                    <g:if test="${customerInstance?.custBirthPlace}">
+                        <g:select id="custBirthPlace" name="custBirthPlace" noSelection="${['':'Select Birth Place']}" from="${icbs.lov.Town.list()}" optionKey="id" optionValue="description" value="${customerInstance?.custBirthPlace?.id}" class="form-control"/>
+                    </g:if>
+                    <g:else>
+                        <g:select id="custBirthPlace" name="custBirthPlace" noSelection="${['':'Select Birth Place']}" from="${icbs.lov.Town.list()}" optionKey="id" optionValue="description" value="${customerInstance?.custBirthPlace}" class="form-control"/>
+                    </g:else>    
+                    
+                    <g:hiddenField id="birthPlace" name="birthPlace" value="" />
                 </g:else>   
-                     <g:hasErrors bean="${customerInstance}" field="birthPlace">
+                     <g:hasErrors bean="${customerInstance}" field="custBirthPlace">
                         <div class="controls">
                             <span class="help-block">
-                                <g:eachError bean="${customerInstance}" field="birthPlace">
+                                <g:eachError bean="${customerInstance}" field="custBirthPlace">
                                     <g:message error="${it}" /><br/>
                                 </g:eachError>
                             </span>

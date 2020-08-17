@@ -585,6 +585,16 @@ class CustomerController{
                 }  
                 
              }
+             if(params.custBirthPlace){
+                def xcustBirthPlace = Town.get(params.custBirthPlace)
+                if(xcustBirthPlace){
+                    // birth place exist
+                    cmd.birthPlace = xcustBirthPlace.description
+                    cmd.custBirthPlace = xcustBirthPlace
+                }else{
+                    cmd.birthPlace = Town.get(1).description
+                }
+            }
         }
         if(!params?.onsubmit){
             if(cmd.type?.id!=1){
@@ -687,13 +697,28 @@ class CustomerController{
         }
         println("params: "+params)
         println("*****************************")
-        if(params.type.id.toInteger() == 1){
+       if(params.type.id.toInteger() == 1){
             println("params.birthPlace: "+params.birthPlace)
             //params.birthPlace = sesbirthPlace
-            params.birthPlace = Town.get(params.birthPlace).description
+            
+            if(params.custBirthPlace){
+                def xcustBirthPlace = Town.get(params.custBirthPlace)
+                if(xcustBirthPlace){
+                    // birth place exist
+                    params.birthPlace = xcustBirthPlace.description
+                    params.custBirthPlace = xcustBirthPlace
+                }else{
+                    params.birthPlace = Town.get(1).description
+                    params.custBirthPlace = Town.get(1)
+                }
+                
+                
+            }
+            //params.birthPlace = Town.get(params.birthPlace).description
             println("params.birthPlace: "+params.birthPlace)
         }else{
-            
+            params.birthPlace = Town.get(1).description
+            customerInstance.custBirthPlace = Town.get(1)
         }
         
         println("*****************************")
@@ -748,12 +773,25 @@ class CustomerController{
             println("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL")
             if(params.birthPlace){
                 println("params.birthPlace: "+params.birthPlace)
-                params.birthPlace = Town.get(params.birthPlace).description
+                //params.birthPlace = Town.get(params.birthPlace).description
+            }
+            if(params.custBirthPlace){
+                def xcustBirthPlace = Town.get(params.custBirthPlace)
+                if(xcustBirthPlace){
+                    // birth place exist
+                    params.birthPlace = xcustBirthPlace.description
+                    params.custBirthPlace = xcustBirthPlace
+                }else{
+                    params.birthPlace = Town.get(1).description
+                    params.custBirthPlace = Town.get(1)
+                }
             }
             println("params.birthPlace: "+params.birthPlace)
             println("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL")
         }else{
-            
+            // set N/A
+            params.birthPlace = Town.get(1).description
+            customerInstance.custBirthPlace = Town.get(1)
         }
         def result = customerService.update(params)
         if(!result.error) {
@@ -930,6 +968,7 @@ class customerVerificationCommand {
         Lov civilStatus
         Date birthDate
         String birthPlace
+        Town custBirthPlace
             static constraints = {
                 group nullable:false
                 importFrom Customer

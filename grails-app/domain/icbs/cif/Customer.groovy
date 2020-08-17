@@ -16,6 +16,7 @@ import icbs.admin.Branch
 import icbs.deposit.Deposit
 import icbs.gl.CfgAcctGlTemplate
 import icbs.loans.Loan
+import icbs.lov.Town
 class Customer{
     static belongsTo = [Relation,Signatory]
     
@@ -101,7 +102,7 @@ class Customer{
     Date spouseBirthDate
     String spouseContactNo
     Membership membership
-
+    Town custBirthPlace
     
 
     static constraints = {
@@ -330,6 +331,7 @@ class Customer{
         lastUpdatedBy nullable:true
         createdAt nullable:true
         lastUpdatedAt nullable:true
+        custBirthPlace nullable:true
 
     }
 
@@ -374,6 +376,9 @@ class Customer{
         }else{
             /*Status Pending(Not Linked from Relation*/
             this.status = CustomerStatus.get(1)
+        }
+        if(this.type?.id != 1){
+            this.custBirthPlace = Town.get(1)
         }
         this.createdAt = new Date()
         displayNameHelper()
