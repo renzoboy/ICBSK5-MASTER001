@@ -52,29 +52,29 @@
                                    
                                     $('#borrowerName').val(_value.display_name);
                                     $('#amount').val(_value.amount);
-                                    if(_value.guarantee_facility_id == "null" || _value.guarantee_facility_id == null){
-                                        alertify.alert(AppTitle,"Sorry,Please Update loan application first some details missing (Guarantee Facility)", function(){
-                                            window.location.href="/icbs/creditInvestigation/";
-                                        });
-                                    }else if(parseInt(_value.cirecord) > 0){
-                                        alertify.alert(AppTitle,"Sorry, This Loan Application has record already kindly check", function(){
-                                            window.location.href="/icbs/creditInvestigation/";
-                                        });
-                                    }else{
-                                        console.log("_value.guarantee_facility_id: "+_value.guarantee_facility_id);
-                                        var secAndUnsecCheck = parseInt(_value.guarantee_facility_id);
-                                        $('#loanAppSecOrUnsecId').val(secAndUnsecCheck);
-                                        if(secAndUnsecCheck == 8 || secAndUnsecCheck == 5 || secAndUnsecCheck == 9 || secAndUnsecCheck == 2 || secAndUnsecCheck == 10 ){
-                                            //unsecured
-                                            document.getElementById("unsec").style.display = "block";
-                                            document.getElementById("secured").style.display = "none";
-                                        }else{
-                                            //secured
-                                            document.getElementById("unsec").style.display = "none";
-                                            document.getElementById("secured").style.display = "block";
-                                        }
-                                        
-                                    }
+//                                    if(_value.guarantee_facility_id == "null" || _value.guarantee_facility_id == null){
+//                                        alertify.alert(AppTitle,"Sorry,Please Update loan application first some details missing (Guarantee Facility)", function(){
+//                                            window.location.href="/icbs/creditInvestigation/";
+//                                        });
+//                                    }else if(parseInt(_value.cirecord) > 0){
+//                                        alertify.alert(AppTitle,"Sorry, This Loan Application has record already kindly check", function(){
+//                                            window.location.href="/icbs/creditInvestigation/";
+//                                        });
+//                                    }else{
+//                                        console.log("_value.guarantee_facility_id: "+_value.guarantee_facility_id);
+//                                        var secAndUnsecCheck = parseInt(_value.guarantee_facility_id);
+//                                        $('#loanAppSecOrUnsecId').val(secAndUnsecCheck);
+//                                        if(secAndUnsecCheck == 8 || secAndUnsecCheck == 5 || secAndUnsecCheck == 9 || secAndUnsecCheck == 2 || secAndUnsecCheck == 10 ){
+//                                            //unsecured
+//                                            document.getElementById("unsec").style.display = "block";
+//                                            document.getElementById("secured").style.display = "none";
+//                                        }else{
+//                                            //secured
+//                                            document.getElementById("unsec").style.display = "none";
+//                                            document.getElementById("secured").style.display = "block";
+//                                        }
+//                                        
+//                                    }   
                                     
                                     
                                     
