@@ -102,7 +102,7 @@
 
     <span><g:formatNumber format="###,##0.00" number="${loanInstance?.grantedAmount}" /></span>
 </div>
-
+<%--
 <div class="fieldcontain form-group">
     <label class="control-label col-sm-4">
         <g:message code="loan.effectiveInterestRate.label" default="Effective Interest Rate" />
@@ -118,7 +118,7 @@
 
     <span><g:formatNumber format="###,##0.00" number="${loanInstance?.monthlyInterestRate}" /> %</span>
 </div>
-
+--%>
 <div class="fieldcontain form-group">
     <label class="control-label col-sm-4">
         <g:message code="loan.totalNetProceeds.label" default="Total Net Proceeds" />
