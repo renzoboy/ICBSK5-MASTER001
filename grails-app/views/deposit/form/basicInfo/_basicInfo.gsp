@@ -15,7 +15,7 @@
                 
                 <div class="col-sm-8">
                     <g:if test="${!depositInstance?.type?.id}">
-                        <g:select id="type" onchange="changeAcctInformationForm()" name="type.id" from="${icbs.lov.DepositType.list()}" optionKey="id" optionValue="description" required="" value="${depositInstance?.type?.id}" class="many-to-one form-control"/>
+                        <g:select id="type" onchange="changeAcctInformationForm()" name="type.id" from="${icbs.lov.DepositType.findAllByStatus(true)}" optionKey="id" optionValue="description" required="" value="${depositInstance?.type?.id}" class="many-to-one form-control"/>
                     </g:if>
                     <g:else>
                         <g:hiddenField id="type" name="type.id" value="${depositInstance?.type?.id}"/>

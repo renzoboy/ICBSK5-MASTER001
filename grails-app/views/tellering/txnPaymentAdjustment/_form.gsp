@@ -5,7 +5,7 @@
     <div class="col-sm-6">
         <select id="txnTemplate" name="txnTemplate" class="many-to-one form-control" onchange="testchange();">
             <option selected="selected" disabled="true">-- Select a transaction type --</option>
-            <g:each in="${icbs.admin.TxnTemplate.findAllByMemoTxnTypeAndTxnType(icbs.lov.MemoTxnType.read(1), icbs.lov.TxnType.read(21),[sort:"code", order:"asc"])}" var="txnTemplateInstance">
+            <g:each in="${icbs.admin.TxnTemplate.findAllByMemoTxnTypeAndTxnTypeAndConfigItemStatus(icbs.lov.MemoTxnType.read(1),icbs.lov.TxnType.read(21),icbs.lov.ConfigItemStatus.read(2),[sort:"code", order:"asc"])}" var="txnTemplateInstance">
                 <option value="${txnTemplateInstance.id}" data-code="${txnTemplateInstance.code}">${txnTemplateInstance.codeDescription}</option>
             </g:each>
         </select>

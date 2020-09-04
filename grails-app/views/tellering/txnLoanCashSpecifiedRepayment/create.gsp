@@ -7,7 +7,7 @@
     <head>  
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="layout" content="main">
-        <title>Cash Specified Payment Transaction</title>
+        <title>Loan Cash Specified Payment Transaction</title>
         
         <script type="text/javascript" src="${resource(dir: 'js', file: 'customerSearch.js')}"></script>
         <asset:javascript src="telleringHelper.js"/>

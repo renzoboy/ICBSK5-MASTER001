@@ -7,7 +7,7 @@
     <head>  
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="layout" content="main">
-        <title>Check Payment Transaction</title>
+        <title>Loan Check Repayment Transaction</title>
         
         <script type="text/javascript" src="${resource(dir: 'js', file: 'customerSearch.js')}"></script>
         <asset:javascript src="telleringHelper.js"/>
@@ -268,7 +268,7 @@
     
     <body>
         <content tag="breadcrumbs">
-                <span class="fa fa-chevron-right"></span><span class="current">Loan Check Payment Transaction</span>
+                <span class="fa fa-chevron-right"></span><span class="current">Loan Check Repayment Transaction</span>
         </content>
         <content tag="main-content">
             <div class="modal" id="add-check-modal">

@@ -11,7 +11,7 @@
             <g:message code="deposit.type.label" default="Deposit Type" />
             <span class="required-indicator">*</span>
         </label>
-        <div class="col-sm-8"><g:select id="type" name="type.id" onchange="changeTypeProductSchemeForm('type')"from="${icbs.lov.DepositType.list()}" optionKey="id" optionValue="description" required="" value="${depositInstance?.type?.id}"noSelection="['':'']" class="many-to-one form-control"/>
+        <div class="col-sm-8"><g:select id="type" name="type.id" onchange="changeTypeProductSchemeForm('type')"from="${icbs.lov.DepositType.findAllByStatus(true)}" optionKey="id" optionValue="description" required="" value="${depositInstance?.type?.id}"noSelection="['':'']" class="many-to-one form-control"/>
             <g:hasErrors bean="${depositInstance}" field="type">
                 <div class="controls">
                     <span class="help-block">
