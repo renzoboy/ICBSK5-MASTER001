@@ -674,7 +674,7 @@
                         <g:if test="${loanInstance?.product?.productType?.id == 7}">
                             <li><g:link action="edit" resource="${loanInstance}">Update Sales Contract Receivable Details</g:link></li>
                         </g:if>
-	            	<li><g:link action="editSweepAccount" resource="${loanInstance}">Account Sweep Maintenance</g:link></li>
+	    <%--  <li><g:link action="editSweepAccount" resource="${loanInstance}">Account Sweep Maintenance</g:link></li>  --%>
                         <li><g:link target="_blank" controller="loan" action="printLoanInstallment" > Print Installment Schedule</g:link></li>
                         <g:if test="${loanInstance?.product?.productType?.id == 6}">
                         <li><a href="#" onclick="genReportLNA011()">Print Account Inquiry</a></li>

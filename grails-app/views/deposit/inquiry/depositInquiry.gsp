@@ -67,12 +67,12 @@
             <g:else>
               <li><button disabled="disabled">Account Ammendment</button></li>
             </g:else>
-            <g:if test="${depositInstance?.type?.id == 2}">
+         <%--   <g:if test="${depositInstance?.type?.id == 2}">
               <li><g:link action="viewCheckbook" id="${depositInstance.id}">Checkbook Maintenance</g:link></li>
             </g:if>
             <g:else>
               <li><button disabled="disabled">Checkbook Maintenance</button></li>
-            </g:else>
+            </g:else>  --%>
             <g:if test="${depositInstance}">
                 <g:if test="${depositInstance?.branch?.id == UserMaster?.get(session.user_id)?.branch?.id}">
                     <li><g:link action="viewPassbook" id="${depositInstance.id}">Passbook Maintenance</g:link></li>
@@ -96,7 +96,7 @@
             <g:else>
               <li><button disabled="disabled">Deposit Hold Maintenance</button></li>
             </g:else>
-            <g:if test="${depositInstance}">
+         <%--   <g:if test="${depositInstance}">
                 <!--
                 <li><g:link action="viewStandingOrder" id="${depositInstance.id}">Standing Order Maintenance</g:link></li>
                 -->
@@ -104,7 +104,7 @@
             </g:if>
             <g:else>
               <li><button disabled="disabled">Standing Order Maintenance</button></li>
-            </g:else>
+            </g:else>  --%>
             <g:if test="${depositInstance}">
               <li><g:link action="viewMemo" id="${depositInstance.id}">Memo Transactions</g:link></li>
             </g:if>
@@ -112,12 +112,12 @@
               <li><button disabled="disabled">Memo Transactions</button></li>
             </g:else>
     
-            <g:if test="${depositInstance?.product?.productType.id!=1 && depositInstance?.product?.productType.id!=3}">
+          <%--  <g:if test="${depositInstance?.product?.productType.id!=1 && depositInstance?.product?.productType.id!=3}">
               <li><g:link action="viewStopPaymentOrder" id="${depositInstance.id}">Stop Payment Order Maintenance</g:link></li>
             </g:if>
             <g:else>
               <li><button disabled="disabled">Stop Payment Order Maintenance</button></li>
-            </g:else>
+            </g:else>  --%>
             <g:if test="${depositInstance}">
                <g:if test="${depositInstance?.status?.id!=7}">
                     <li><g:link action="viewDepositStatus" id="${depositInstance.id}">Close Deposit Account</g:link></li>
@@ -135,12 +135,12 @@
             <g:else>
               <li><button disabled="disabled">Deposit Interest Rate Maintenance</button></li>
             </g:else>
-            <g:if test="${depositInstance}">
+          <%--  <g:if test="${depositInstance}">
               <li><g:link action="viewSweep" id="${depositInstance.id}">ATA Sweep Maintenance</g:link></li>
             </g:if>
             <g:else>
               <li><button disabled="disabled">ATA Sweep Maintenance</button></li>
-            </g:else>
+            </g:else> --%>
             <g:if test="${depositInstance?.status?.id == 6}">
               <li><button disabled="disabled">Fund Transfer</button></li>
             </g:if>

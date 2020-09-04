@@ -208,9 +208,9 @@
                 <g:hiddenField id="depositIdx" name="depositIdx" value="${depositInstance.id}" />    
                 <li><g:link action="#" data-toggle="modal" data-target="#modalMemoDebit" id="${depositInstance.id}" resource="${depositInstance}">Debit Memo Adjustment</g:link></li>
                 <li><g:link action="#" data-toggle="modal" data-target="#modalMemoCreedit" id="${depositInstance.id}" resource="${depositInstance}">Credit Memo Adjustment</g:link></li>
-                <li><g:link action="depositDebitMemoBills" id="${depositInstance.id}" resource="${depositInstance}">Debit Memo Bills Payment</g:link></li>
+          <%--      <li><g:link action="depositDebitMemoBills" id="${depositInstance.id}" resource="${depositInstance}">Debit Memo Bills Payment</g:link></li>
                 <li><g:link action="depositDebitMemoRem" id="${depositInstance.id}" resource="${depositInstance}">Debit Memo Remittance</g:link></li>
-                <li><g:link action="depositCreditMemoRem" id="${depositInstance.id}" resource="${depositInstance}">Credit Memo Remittance</g:link></li>    
+                <li><g:link action="depositCreditMemoRem" id="${depositInstance.id}" resource="${depositInstance}">Credit Memo Remittance</g:link></li>     --%>
                 <li>
                     <a href=# onclick="alertify.confirm(AppTitle,'Are you sure you want to return to Deposit Inquiries page?',
                         function(){
