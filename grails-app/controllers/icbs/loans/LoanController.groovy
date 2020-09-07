@@ -3301,6 +3301,9 @@ def reopen(){
         println 'WRITE-OFF'
         println params
         def txnWrt = TxnTemplate.get(params.txnTemplate.toInteger())
+        def loanTranWrtPointer = TxnTemplate.get(Institution.findByParamCode('LNS.50140').paramValue.toInteger())
+        println("txnWrt : "+txnWrt)
+        println("loanTranWrtPointer : "+loanTranWrtPointer)
         createLoanHistoryEntry(loanInstance)
         def balance = loanInstance.balanceAmount
         def amount = balance - 1
@@ -3315,12 +3318,12 @@ def reopen(){
             txnFileInstance.user = UserMaster.get(session.user_id)
             txnFileInstance.branch = Branch.get(UserMaster.get(session.user_id).branchId)
             txnFileInstance.txnAmt = amount
-            txnFileInstance.txnCode = TxnTemplate.get(36).code
+            txnFileInstance.txnCode = loanTranWrtPointer.code
             txnFileInstance.txnDate = branch.runDate
             txnFileInstance.txnTimestamp = new Date().toTimestamp()
-            txnFileInstance.txnDescription = TxnTemplate.get(36).codeDescription
+            txnFileInstance.txnDescription = loanTranWrtPointer.codeDescription
             txnFileInstance.status = ConfigItemStatus.get(2)
-            txnFileInstance.txnType = TxnTemplate.get(36).txnType
+            txnFileInstance.txnType = loanTranWrtPointer.txnType
             txnFileInstance.txnRef = 'Loans Transfer to Write Off'
             txnFileInstance.txnParticulars = loanInstance.accountNo + ' Loans Transfer to Write Off'
             
@@ -3348,7 +3351,7 @@ def reopen(){
             txnLoanPaymentDetailsInstance.save(flush:true,failOnError:true)
             glTransactionService.saveTxnBreakdown(txnFileInstance.id)
             def loanLedgerEntry = new LoanLedger(loan: loanInstance, txnFile: txnFileInstance, txnDate: branch.runDate, 
-                txnTemplate: TxnTemplate.get(36), txnRef: txnFileInstance.txnRef,principalCredit: amount,
+                txnTemplate: loanTranWrtPointer, txnRef: txnFileInstance.txnRef,principalCredit: amount,
                 principalBalance: loanInstance.balanceAmount)
             loanLedgerEntry.save(flush:true,failOnError:true)
                 
