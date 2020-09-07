@@ -3302,8 +3302,6 @@ def reopen(){
         println params
         def txnWrt = TxnTemplate.get(params.txnTemplate.toInteger())
         def loanTranWrtPointer = TxnTemplate.get(Institution.findByParamCode('LNS.50140').paramValue.toInteger())
-        println("txnWrt : "+txnWrt)
-        println("loanTranWrtPointer : "+loanTranWrtPointer)
         createLoanHistoryEntry(loanInstance)
         def balance = loanInstance.balanceAmount
         def amount = balance - 1
