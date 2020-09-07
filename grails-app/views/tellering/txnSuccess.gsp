@@ -215,7 +215,7 @@
                 <li><g:link action="createTellerCashDepositTxn">Cash Deposit</g:link></li>
                 <li><g:link action="createTellerCheckDepositTxn">Check Deposit</g:link></li>
                 <li><g:link action="createTellerCashWithdrawalTxn">Cash Withdrawal</g:link></li>
-                <li><g:link action="createTellerCheckEncashmentTxn">Check Encashment</g:link></li>
+         <%--       <li><g:link action="createTellerCheckEncashmentTxn">Check Encashment</g:link></li> --%>
                 <li><g:link action="createTellerFDInterestWithdrawalTxn">FD Interest Withdrawal</g:link></li>
                 <li><g:link action="createTellerFDPreTerminationTxn">FD Pre-Termination</g:link></li>
                 <li><g:link action="createTellerLoanCashRepaymentTxn">Cash Payment</g:link></li>
@@ -223,13 +223,13 @@
                 <li><g:link action="createTellerLoanCashSpecifiedRepaymentTxn">Cash Specified Payment</g:link></li>
                 <li><g:link action="createTellerLoanCheckSpecifiedRepaymentTxn">Check Specified Payment</g:link></li>
                 <li><g:link action="createTellerLoanProceedsDisbursementTxn">Proceeds Disbursement</g:link></li>
-                <li><g:link action="createTellerOtherCashReceiptRemittanceTxn">Other Cash Receipt - Remittance</g:link></li>
-                <li><g:link action="createTellerOtherCashReceiptBillsPaymentTxn">Other Cash Receipt - Bills Payment</g:link></li>
+         <%--       <li><g:link action="createTellerOtherCashReceiptRemittanceTxn">Other Cash Receipt - Remittance</g:link></li>
+                <li><g:link action="createTellerOtherCashReceiptBillsPaymentTxn">Other Cash Receipt - Bills Payment</g:link></li>   --%>
                 <li><g:link action="createTellerOtherCashReceiptAdjustmentTxn">Other Cash Receipt - General</g:link></li>
-                <li><g:link action="createTellerOtherCheckReceiptRemittanceTxn">Other Check Receipt - Remittance</g:link></li>
-                <li><g:link action="createTellerOtherCheckReceiptBillsPaymentTxn">Other Check Receipt - Bills Payment</g:link></li>
+         <%--       <li><g:link action="createTellerOtherCheckReceiptRemittanceTxn">Other Check Receipt - Remittance</g:link></li>
+                <li><g:link action="createTellerOtherCheckReceiptBillsPaymentTxn">Other Check Receipt - Bills Payment</g:link></li> --%>
                 <li><g:link action="createTellerOtherCheckReceiptAdjustmentTxn">Other Check Receipt - General</g:link></li>
-                <li><g:link action="createTellerOtherCashPaymentRemittanceTxn">Other Cash Payment - Remittance</g:link></li>
+         <%--       <li><g:link action="createTellerOtherCashPaymentRemittanceTxn">Other Cash Payment - Remittance</g:link></li>  --%>
                 <li><g:link action="createTellerOtherCashPaymentAdjustmentTxn">Other Cash Payment - General</g:link></li>
                 <li><g:link action="viewTellerReverseCancelTxn">Reverse/Cancel Transaction</g:link></li>
             </ul>                                        
