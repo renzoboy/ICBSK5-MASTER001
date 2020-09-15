@@ -35,7 +35,7 @@
 	 <div class="col-sm-8">
             <g:hiddenField name="type.id" value="${customerInstance?.type?.id}"/>
             <g:select id="type" onchange="changeVerificationForm()" disabled="disabled"name="type.id" from="${icbs.lov.CustomerType.findAllByStatusAndIdNotInList(true,['4'])}" optionKey="id" optionValue ="description" value="${customerInstance?.type?.id}" class="form-control" />
-            
+            <g:hiddenField name='xxtypeID' id="xxtypeID" value=""/>
             <g:hasErrors bean="${customerInstance}" field="type">
                 <br>
                 <div class="controls">

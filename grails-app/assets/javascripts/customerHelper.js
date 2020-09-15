@@ -65,11 +65,11 @@ $(document).ready(function () {
                 ajax = true;
                 customerBusinessAndEmploymentValidation();
             }
-//            if(relatedTargetHref==="#tab_6"){  
-//                ajax = true;
-//                customerFamilyValidation();
-//                            //callback(true);
-//            }
+            if(relatedTargetHref==="#tab_6"){  
+                ajax = true;
+                customerFamilyValidation();
+                            //callback(true);
+            }
             if(relatedTargetHref==="#tab_7"){  
                 ajax = true;
                 customerEducationValidation();

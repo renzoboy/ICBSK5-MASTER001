@@ -145,29 +145,32 @@
                     <li><a href='#' onclick="alertNowConfirmCustomerCreation();">Create</a></li>
                         <script>  
                           function alertNowConfirmCustomerCreation(){
-                            
-                          var civilStatusChecker = $('#xxcivilStatus').val();
-                          var xxspouseFirstName = document.getElementById('xspouseFirstName').value;
-                          var xxspouseLastName =document.getElementById('spouseLastName').value;
-                          var xxspouseMiddleName = document.getElementById('spouseMiddleName').value;
-                          var xxspouseBirthDate = document.getElementById('spouseBirthDate').value;
-                          var xxspouseContactNo = document.getElementById('spouseContactNo').value;
-                          
-                          console.log("civilStatusChecker : "+civilStatusChecker);
-                          console.log("xspouseLastName : "+xxspouseLastName);
-                          console.log("xspouseFirstName : "+xxspouseFirstName);
-                          console.log("xspouseMiddleName : "+xxspouseMiddleName);
-                          console.log("xspouseBirthDate : "+xxspouseBirthDate);
-                          console.log("xspouseContactNo : "+xxspouseContactNo);
+                            console.log("customer type");
+                            var civilStatusChecker = $('#xxcivilStatus').val();
+                            console.log("civilStatusChecker : "+civilStatusChecker);
+                            if(civilStatusChecker){
 
-                          if(civilStatusChecker !=  66){
-                                    if(xxspouseFirstName =="" || xxspouseLastName == "" || xxspouseMiddleName =="" || xxspouseBirthDate =="" ||  xxspouseContactNo ==""){
-                                              console.log("incomple data");
-                                             notify.message('Incomplete Spouse Information! ...|error|alert'); 
-                                             return false;
+                                    var xxspouseFirstName = document.getElementById('xspouseFirstName').value;
+                                    var xxspouseLastName =document.getElementById('spouseLastName').value;
+                                    var xxspouseMiddleName = document.getElementById('spouseMiddleName').value;
+                                    var xxspouseBirthDate = document.getElementById('spouseBirthDate').value;
+                                    var xxspouseContactNo = document.getElementById('spouseContactNo').value;
+
+                                    console.log("civilStatusChecker : "+civilStatusChecker);
+                                    console.log("xspouseLastName : "+xxspouseLastName);
+                                    console.log("xspouseFirstName : "+xxspouseFirstName);
+                                    console.log("xspouseMiddleName : "+xxspouseMiddleName);
+                                    console.log("xspouseBirthDate : "+xxspouseBirthDate);
+                                    console.log("xspouseContactNo : "+xxspouseContactNo);
+
+                                    if(civilStatusChecker !=  66){
+                                              if(xxspouseFirstName =="" || xxspouseLastName == "" || xxspouseMiddleName =="" || xxspouseBirthDate =="" ||  xxspouseContactNo ==""){
+                                                        console.log("incomple data");
+                                                       notify.message('Incomplete Spouse Information! ...|error|alert'); 
+                                                       return false;
+                                              }
                                     }
-                          }
-                          
+                           }
                             var xxxxpreseID = $('#xxpresentID').val();
                             var idididno = $('#idno').val();
                             console.log('xxid: '+xxxxpreseID);
