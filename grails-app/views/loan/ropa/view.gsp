@@ -319,8 +319,7 @@
 		<g:message code="particulars.label" default="Transaction Particulars" />
      
 	</label>
-	<div class="col-sm-7"><g:textArea name="particulars" value="${txnRopaInstance?.particulars}" rows="5" cols="50"/>        
-
+	<div class="col-sm-7"><g:textArea name="particulars" value="${txnRopaInstance?.particulars}" class="form-control"/>        
             <g:hasErrors bean="${txnRopaInstance}" field="particulars">
                 <div class="controls">
                     <span class="help-block">

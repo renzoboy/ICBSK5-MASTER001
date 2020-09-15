@@ -6,7 +6,7 @@
 		<g:message code="docInventory.type.label" default="Doc Inventory Type" />
 		<span class="required-indicator">*</span>
 	</label>
-	<div class="col-sm-8"><g:select disabled="${readonly}" id="type" name="type.id" from="${icbs.lov.DocInventoryType.list()}" optionKey="id"  optionValue="description" required="" value="${docInventoryInstance?.type?.id}" class="many-to-one form-control"/>
+	<div class="col-sm-8"><g:select disabled="${readonly}" id="type" name="type.id" from="${icbs.lov.DocInventoryType.findAllByStatus(true)}" optionKey="id"  optionValue="description" required="" value="${docInventoryInstance?.type?.id}" class="many-to-one form-control"/>
 
             <g:hasErrors bean="${docInventoryInstance}" field="type">
                 <div class="controls">
